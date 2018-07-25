@@ -1,0 +1,67 @@
+body {
+  height: 100vh;
+  width: 100%;
+  background-color: pink;
+  font-family: sans-serif;
+}
+
+span {
+  position: fixed;
+  left: 43%;
+  top: 100px;
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.main-container {
+}
+
+.game-info-controls {
+  position: fixed;
+  left: 200px;
+  top: 300px;
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+}
+
+.game-info {
+  border-style: inset;
+  padding: 5px;
+}
+
+.controls {
+  border-style: inset;
+  padding: 5px;
+  margin-bottom: 40px;
+}
+
+.dev-info-scores {
+  text-decoration: none;
+  position: fixed;
+  right: 200px;
+  top:300px;
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+}
+
+.dev-info {
+  text-decoration: none;
+  border-style: inset;
+  padding: 5px;
+}
+
+.scores {
+  border-style: inset;
+  padding: 5px;
+  margin-bottom: 40px;
+}
+
+.game-canvas {
+  position: fixed;
+  left: 400px;
+  top: 200px;
+  background-color: #fff;
+  border: 5px solid gold;
+}
