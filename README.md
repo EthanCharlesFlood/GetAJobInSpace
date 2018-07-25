@@ -13,6 +13,8 @@
 
 ## WireFrames
 
+![wireframe](https://github.com/EthanCharlesFlood/JavaScript-Project/blob/master/JavaScript%20Game%20Wireframe.png)
+
 ## Architecture & Technologies
 
 4 Main classes will govern the logic of the game. One will implement the menu system for the game.  There will be an object class that handles the creation of obstacles and the player sprite and hit detection among these things.  Will possibly use inheritance and a superclass because these two have separate concerns.  There will be a board class that will govern the board makeup and seeding of obstacles.  Finally there will be a game class which compiles all the classes into the playable game and causes the scrolling and handles player input.
