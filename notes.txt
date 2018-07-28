@@ -1,0 +1,25 @@
+STRETCH GOALS:
+if possible extra lives in the form of referrals
+shoot resumes at enemys to destroy them
+
+GAME LOGIC;
+spawn obstacle objects at different xs off the screen so they cascade in
+on hit detection with obstacles clear interval of all game objects
+render score and some pithy message or some horseshit whatever fuck you
+
+
+HITBOXES:
+hitbox algorithm: have a helper function which takes as an input
+the two objects hitboxes position and with and check every frame for any collision
+
+
+SCORE:
+implement score in job points based on number of obstacles avoided
+Constantly increment on interval and every time an obstacle or enemy object
+resets increment score more
+
+MENU:
+On space render the objects neccesary to play the game and use clear interval to
+remove the menu
+
+MANAGER SHOOTS LASERS
