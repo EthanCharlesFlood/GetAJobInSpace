@@ -7,8 +7,11 @@
 ## Features & MVPs
 
 [ ] Start and pause functioning game.
+
 [ ] Infinite scrolling with player sprite moving with screen.
+
 [ ] Jumping ability with semi-random seeded obstacles to avoid.
+
 [ ] Scoring based on number of jumps or distance traveled
 
 ## WireFrames
