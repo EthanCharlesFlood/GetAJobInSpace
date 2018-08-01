@@ -26,14 +26,13 @@ const keyDownHandler = (e) => {
       gameStart = 1;
     } else if (gameStart > 0 && tc.dead) {
       gameStart = 0;
+      jp.resetJobPoints();
       tc.reset();
       e1.reset();
+      e2.reset();
+      e3.reset();
       o1.reset();
       o2.reset();
-      o2.reset();
-      o3.reset();
-      o4.reset();
-      jp.reset();
     }
   } else if (e.keyCode === 39) {
     rightPressed = true;
@@ -246,6 +245,48 @@ class EnemyObject extends GameObject {
   }
 }
 
+class EnemyObject2 extends GameObject {
+  constructor(canvasWidth, canvasHeight, context) {
+    super(canvasWidth, canvasHeight, context);
+    this.draw = this.draw.bind(this);
+    this.y = Math.floor(Math.random() * 200) + 300;;
+    this.dy = Math.random() * 3 + 1;
+    this.width = 120;
+    this.height = 140;
+    this.enemy = new Image();
+    this.enemy.src = "/home/ethan/Desktop/JavaScript-Project/assets/imageedit_3_7734021827.png"
+  }
+
+  hitbox() {
+    return {
+      x1: this.x + 10,
+      x2: this.x + 30,
+      y1: this.y + 10,
+      y2: this.y + 30,
+    };
+  }
+
+  reset() {
+    this.x = 1100;
+    this.y = Math.floor(Math.random() * 200) + 300;
+  }
+
+  draw() {
+    if (this.x < -200) {
+      this.x = 1000 + Math.floor(Math.random() * 500);
+      this.y = Math.floor(Math.random() * 200) + 300;
+    }
+    if (this.y >= 550) {
+      this.dy = this.dy * -1;
+    } else if (this.y <= 0) {
+      this.dy = this.dy * -1;
+    }
+    this.x -= 3;
+    this.y -= this.dy;
+    this.context.drawImage(this.enemy,200,5,62,60,this.x,this.y,60,60);
+  }
+}
+
 class Obstacle extends GameObject {
   constructor(canvasWidth, canvasHeight, context) {
     super(canvasWidth, canvasHeight, context);
@@ -333,21 +374,32 @@ class JobPoints {
     this.characer = character;
     this.draw = this.draw.bind(this);
     this.updateJobPoints = this.updateJobPoints.bind(this);
+    this.resetJobPoints = this.resetJobPoints.bind(this);
   }
 
   updateJobPoints() {
     const dead = this.characer.dead;
     if (!dead) {
       this.jobPoints = Math.floor(this.jobPoints + (Math.random() * 10));
-    } else {
-      const highJobPoints = $("li");
-      console.log(highJobPoints);
     }
     this.jobPointDisplay = `Job Points: ${this.jobPoints}`;
   }
 
-  reset() {
+  updateHighScores() {
+    let scores = document.getElementById("space-scores");
+    if (this.jobPoints > scores[0].value) {
+
+    } else if (this.jobPoints > scores[1].value) {
+
+    } else if (this.jobPoints > scores[2].value) {
+
+    }
+  }
+
+  resetJobPoints() {
+    // this.updateHighScores();
     this.jobPoints = 0;
+    this.JobPointDisplay = `Job Points: ${this.jobPoints}`;
   }
 
   draw() {
@@ -360,10 +412,11 @@ class JobPoints {
 
 const tc = new CharacterObject(50, 50);
 const bg = new BackgroundObject(0,0);
-const e1 = new EnemyObject(1500);
+const e1 = new EnemyObject(1250);
+const e2 = new EnemyObject2(1000);
+const e3 = new EnemyObject2(1250);
 const o1 = new Obstacle(1000);
 const o2 = new Obstacle(1000);
-const o3 = new Obstacle(1000);
 const jp = new JobPoints(tc);
 const menu = new Menu;
 
@@ -382,17 +435,17 @@ const draw = () => {
       bg.draw();
       tc.draw();
       e1.draw();
+      e2.draw();
+      e3.draw();
       o1.draw();
       o2.draw();
-      o2.draw();
-      o3.draw();
       jp.updateJobPoints();
       jp.draw();
       tc.checkCollision(e1);
+      tc.checkCollision(e2);
+      tc.checkCollision(e3);
       tc.checkCollision(o1);
       tc.checkCollision(o2);
-      tc.checkCollision(o3);
-      tc.checkCollision(o4);
     }
   }
 }
