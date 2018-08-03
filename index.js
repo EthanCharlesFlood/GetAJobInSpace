@@ -1,3 +1,10 @@
+import CharacterObject from './scripts/character';
+import Obstacle from "./scripts/obstacles.js";
+import BackgroundObject from "./scripts/background.js";
+import Menu from "./scripts/menu.js";
+import JobPoints from "./scripts/jobPoints.js";
+import { EnemyObject, EnemyObject2 } from "./scripts/enemies.js";
+
 let requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 let now, delta;
 let then = Date.now();
@@ -15,11 +22,23 @@ let rightPressed = false;
 let spacePressed = false;
 let gameRunning = false;
 
+const tc = new CharacterObject(50, 50, ctx);
+const bg = new BackgroundObject(0,0, ctx);
+console.log(ctx);
+const e1 = new EnemyObject(1250, 0, ctx);
+const e2 = new EnemyObject2(1000, 0, ctx);
+const e3 = new EnemyObject2(1250, 0, ctx);
+const e4 = new EnemyObject2(1500, 0, ctx);
+const o1 = new Obstacle(1000, 0, ctx);
+const o2 = new Obstacle(1000, 0, ctx);
+const jp = new JobPoints(tc, ctx);
+const menu = new Menu(ctx);
+
 const keyDownHandler = (e) => {
   if (e.keyCode === 40) {
-    upPressed = true;
+    tc.upPressed = true;
   } else if (e.keyCode === 38) {
-    downPressed = true;
+    tc.downPressed = true;
   } else if (e.keyCode === 32) {
     spacePressed = true;
     if (gameStart < 1) {
@@ -36,379 +55,32 @@ const keyDownHandler = (e) => {
       o2.reset();
     }
   } else if (e.keyCode === 39) {
-    rightPressed = true;
+    tc.rightPressed = true;
   } else if (e.keyCode === 37) {
-    leftPressed = true;
+    tc.leftPressed = true;
   }
-}
+};
 
 const keyUpHandler = (e) => {
   if (e.keyCode === 40) {
-    upPressed = false;
+    tc.upPressed = false;
   } else if (e.keyCode === 38) {
-    downPressed = false;
+    tc.downPressed = false;
   } else if (e.keyCode === 39) {
-    rightPressed = false;
+    tc.rightPressed = false;
   } else if (e.keyCode === 37) {
-    leftPressed = false;
+    tc.leftPressed = false;
   } else if (e.keyCode === 32) {
     spacePressed = false;
   }
-}
+};
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
-class GameObject {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-    this.speed = 0;
-    this.canvasHeight = 600;
-    this.canvasWidth = 1000;
-    this.context = ctx;
-  }
-
-  draw() {
-  }
-}
-
-class BackgroundObject extends GameObject {
-  constructor(canvasWidth,canvasHeight, context) {
-    super(canvasWidth, canvasHeight, context);
-    this.speed = 1;
-    this.draw = this.draw.bind(this);
-    this.background = new Image();
-    this.background.src = "/home/ethan/Desktop/JavaScript-Project/assets/Starfield-4_1000x600.jpg";
-  }
-
-  draw() {
-    this.x += this.speed;
-    this.context.drawImage(this.background, this.x, this.y);
-    this.context.drawImage(this.background, this.x - this.canvasWidth, this.y);
-
-    if (this.x >= this.canvasWidth) {
-      this.x = 0;
-    }
-  }
-}
-
-class CharacterObject extends GameObject {
-  constructor(canvasWidth, canvasHeight, context) {
-    super(canvasWidth, canvasHeight, context);
-    this.draw = this.draw.bind(this);
-    this.width = 35;
-    this.height = 50;
-    this.dead = false;
-    this.count = 0;
-    this.character = new Image();
-    this.character.src = "/home/ethan/Desktop/JavaScript-Project/assets/3DS - Regular Show Mordecai and Rigby in 8-Bit Land - Garrett Bobby Ferguson Jr Suit.png";
-    this.explosionImage = new Image();
-    this.explosionImage.src = "/home/ethan/Desktop/JavaScript-Project/assets/exp2_0.png";
-    this.checkCollision = this.checkCollision.bind(this);
-    this.drawExplosion = this.drawExplosion.bind(this);
-  }
-
-  drawExplosion() {
-    if (this.count < 30) {
-      this.context.drawImage(this.explosionImage,0,0,65,65,this.x,this.y,65,65);
-      this.count += 1;
-    } else if (this.count < 60) {
-      this.context.drawImage(this.explosionImage,0,65,65,65,this.x,this.y,65,65);
-      this.count += 1;
-    } else if (this.count < 90) {
-      this.context.drawImage(this.explosionImage,0,130,65,65,this.x,this.y,65,65);
-      this.count += 1;
-    } else if (this.count < 120) {
-      this.context.drawImage(this.explosionImage,0,195,65,65,this.x,this.y,65,65);
-      this.count += 1;
-    } else {
-      ctx.beginPath();
-      ctx.fillText("YOU DID NOT GET A JOB IN SPACE", 250, 300);
-      ctx.fillStyle = "#ff0000";
-      ctx.closePath();
-      ctx.beginPath();Math.floor(Math.random() * 500) + 100;
-      ctx.fillText("Press Space to Reset", 375, 400);
-      ctx.fillStyle = "#ff0000";
-      ctx.closePath();
-    }
-  }
-
-  checkCollision(object) {
-    const playerHitbox = this.hitbox();
-    const objectHitbox = object.hitbox();
-    {
-      if (
-        playerHitbox.x1 < objectHitbox.x2 &&
-        playerHitbox.x2 > objectHitbox.x1 &&
-        playerHitbox.y1 < objectHitbox.y2 &&
-        playerHitbox.y2 > objectHitbox.y1
-      ) {
-        this.dead = true;
-        return true;
-      }
-    };
-  }
-
-  hitbox() {
-    return {
-      x1: this.x + 5,
-      x2: this.x + 25,
-      y1: this.y + 5,
-      y2: this.y + 40
-    };
-  }
-
-  reset() {
-    this.x = 50;
-    this.y = 50;
-    this.dead = false;
-    this.count = 0;
-  }
-
-  draw() {
-    if (this.dead) {
-      this.drawExplosion();
-    } else {
-      if (upPressed && this.y < 545) {
-        this.y += 7;
-      } else if (downPressed && this.y > 15) {
-        this.y -= 7;
-      } else if (rightPressed && this.x < 950) {
-        this.x += 7;
-      } else if (leftPressed && this.x > 10) {
-        this.x -= 7;
-      }
-      if (!downPressed && !upPressed && !leftPressed && !rightPressed) {
-        this.context.drawImage(this.character,100,420,55,90,this.x,this.y, 35, 50);
-      } else if (downPressed) {
-        this.context.drawImage(this.character,5,180,55,90,this.x,this.y, 35, 50);
-      } else if (upPressed) {
-        this.context.drawImage(this.character,5,250,55,90,this.x,this.y, 35, 50);
-      } else if (rightPressed) {
-        this.context.drawImage(this.character,120,80,55,90,this.x,this.y, 35, 50);
-      } else if (leftPressed) {
-        this.context.drawImage(this.character,5,420,55,90,this.x,this.y, 35, 50);
-      }
-    }
-  }
-}
-
-class EnemyObject extends GameObject {
-  constructor(canvasWidth, canvasHeight, context) {
-    super(canvasWidth, canvasHeight, context);
-    this.draw = this.draw.bind(this);
-    this.y = Math.floor(Math.random() * 200) + 300;
-    this.width = 120;
-    this.height = 140;
-    this.enemy = new Image();
-    this.enemy.src = "/home/ethan/Desktop/JavaScript-Project/assets/153262875432218109 (1).png"
-  }
-
-  hitbox() {
-    return {
-      x1: this.x,
-      x2: this.x + 100,
-      y1: this.y + 15,
-      y2: this.y + 130,
-    };
-  }
-
-  reset() {
-    this.x = 1100;
-    this.y = Math.floor(Math.random() * 200) + 300;
-  }
-
-  draw() {
-    if (this.x < -200) {
-      this.x = 1100;
-      this.y = Math.floor(Math.random() * 200) + 100;
-    }
-    this.x -= 2;
-    if (this.c < 20) {
-      this.context.drawImage(this.enemy,610,160,120,140,this.x,this.y,120,140);
-      this.c += 1;
-    } else if (this.c < 40) {
-      this.context.drawImage(this.enemy,730,165,120,140,this.x,this.y,120,140);
-      this.c += 1;
-    } else {
-      this.context.drawImage(this.enemy,610,160,120,140,this.x,this.y,120,140);
-      this.c = 0;
-    }
-  }
-}
-
-class EnemyObject2 extends GameObject {
-  constructor(canvasWidth, canvasHeight, context) {
-    super(canvasWidth, canvasHeight, context);
-    this.draw = this.draw.bind(this);
-    this.y = Math.floor(Math.random() * 200) + 300;;
-    this.dy = Math.random() * 3 + 1 * [-1,1][Math.floor(Math.random() * 1)];
-    this.width = 120;
-    this.height = 140;
-    this.enemy = new Image();
-    this.enemy.src = "/home/ethan/Desktop/JavaScript-Project/assets/imageedit_3_7734021827.png"
-  }
-
-  hitbox() {
-    return {
-      x1: this.x + 10,
-      x2: this.x + 30,
-      y1: this.y + 10,
-      y2: this.y + 30,
-    };
-  }
-
-  reset() {
-    this.x = 1000 + Math.floor(Math.random() * 500);
-    this.y = Math.floor(Math.random() * 200) + 300;
-  }
-
-  draw() {
-    if (this.x < -200) {
-      this.x = 1000 + Math.floor(Math.random() * 500);
-      this.y = Math.floor(Math.random() * 200) + 300;
-    }
-    if (this.y >= 550) {
-      this.dy = this.dy * -1;
-    } else if (this.y <= 0) {
-      this.dy = this.dy * -1;
-    }
-    this.x -= 3;
-    this.y -= this.dy;
-    this.context.drawImage(this.enemy,200,5,62,60,this.x,this.y,60,60);
-  }
-}
-
-class Obstacle extends GameObject {
-  constructor(canvasWidth, canvasHeight, context) {
-    super(canvasWidth, canvasHeight, context);
-    this.draw = this.draw.bind(this);
-    this.obstacleWords = [
-                        ["REJECTED", 50],
-                        ["HIRING FREEZE", 160],
-                        ["BAD CULTURAL FIT", 220],
-                        ["UNDER-QUALIFIED", 220],
-                        ["'DIFFERENT DIRECTION'", 341],
-                        ["GET OUT OF MY OFFICE", 280],
-                        ["THE POSITION HAS BEEN FILLED", 400],
-                        ["PLEASE DON'T CONTACT US AGAIN", 444],
-                        ["WHO REFERED YOU?", 280]];
-    this.y = Math.floor( Math.random() * 600 );
-    this.wordArr = this.obstacleWords[Math.floor(Math.random() * 8)];
-    this.word = this.wordArr[0];
-    this.dx = Math.floor( Math.random() * 5) + 4;
-    this.vector = [1,-1][Math.floor(Math.random() * 2)]
-  }
-
-  hitbox() {
-    return {
-      x1: this.x,
-      x2: this.x + this.wordArr[1],
-      y1: this.y,
-      y2: this.y + 15,
-    };
-  }
-
-  reset() {
-    this.x = 1000;
-    this.y = Math.floor( Math.random() * 600 );
-    this.wordArr = this.obstacleWords[Math.floor(Math.random() * 8)];
-    this.vector = [1,-1][Math.floor(Math.random() * 2)];
-    this.dx = Math.floor( Math.random() * 5) + 4;
-  }
-
-  draw() {
-    if (this.x < -500) {
-      this.x = 1000;
-      this.y = Math.floor( Math.random() * 600 );
-      this.wordArr = this.obstacleWords[Math.floor(Math.random() * 8)];
-      this.word = this.wordArr[0];
-      this.vector = [1,-1][Math.floor(Math.random() * 2)];
-      this.dx = Math.floor( Math.random() * 5) + 4;
-    }
-    this.x -= this.dx;
-    this.y = this.y;
-    ctx.beginPath();
-    ctx.fillText(this.word, this.x, this.y)
-    ctx.fillStyle = "#ff0000";
-    ctx.closePath();
-  }
-}
-
-class Menu {
-
-  draw() {
-    ctx.beginPath();
-    ctx.fillText("Get a Job", 400, 200);
-    ctx.fillStyle = "#ff0000";
-    ctx.closePath();
-    ctx.beginPath();
-    ctx.fillText("IN SPACE", 395, 300);
-    ctx.fillStyle = "#ff0000";
-    ctx.closePath();
-    ctx.beginPath();Math.floor(Math.random() * 500) + 100;
-    ctx.fillText("Press Space to Start the Hunt", 300, 400);
-    ctx.fillStyle = "#ff0000";
-    ctx.closePath();
-  }
-}
-
-class JobPoints {
-  constructor(character) {
-    this.jobPoints = 0;
-    this.characer = character;
-    this.draw = this.draw.bind(this);
-    this.updateJobPoints = this.updateJobPoints.bind(this);
-    this.resetJobPoints = this.resetJobPoints.bind(this);
-  }
-
-  updateJobPoints() {
-    const dead = this.characer.dead;
-    if (!dead) {
-      this.jobPoints = Math.floor(this.jobPoints + (Math.random() * 10));
-    }
-    this.jobPointDisplay = `Job Points: ${this.jobPoints}`;
-  }
-
-  updateHighScores() {
-    let scores = document.getElementById("space-scores");
-    if (this.jobPoints > scores[0].value) {
-
-    } else if (this.jobPoints > scores[1].value) {
-
-    } else if (this.jobPoints > scores[2].value) {
-
-    }
-  }
-
-  resetJobPoints() {
-    // this.updateHighScores();
-    this.jobPoints = 0;
-    this.JobPointDisplay = `Job Points: ${this.jobPoints}`;
-  }
-
-  draw() {
-    ctx.beginPath();Math.floor(Math.random() * 500) + 100;
-    ctx.fillText(this.jobPointDisplay, 25, 25);
-    ctx.fillStyle = "#ff0000";
-    ctx.closePath();
-  }
-}
-
-const tc = new CharacterObject(50, 50);
-const bg = new BackgroundObject(0,0);
-const e1 = new EnemyObject(1250);
-const e2 = new EnemyObject2(1000);
-const e3 = new EnemyObject2(1250);
-const e4 = new EnemyObject2(1500);
-const o1 = new Obstacle(1000);
-const o2 = new Obstacle(1000);
-const jp = new JobPoints(tc);
-const menu = new Menu;
 
 const draw = () => {
-  requestAnimationFrame(draw)
+  requestAnimationFrame(draw);
 
   now = Date.now();
   delta = now - then;
@@ -437,6 +109,6 @@ const draw = () => {
       tc.checkCollision(o2);
     }
   }
-}
+};
 
 draw();
