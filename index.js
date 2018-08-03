@@ -31,6 +31,7 @@ const keyDownHandler = (e) => {
       e1.reset();
       e2.reset();
       e3.reset();
+      e4.reset();
       o1.reset();
       o2.reset();
     }
@@ -57,14 +58,6 @@ const keyUpHandler = (e) => {
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
-
-
-
-
-;
-
-
-
 
 class GameObject {
   constructor(x, y) {
@@ -250,7 +243,7 @@ class EnemyObject2 extends GameObject {
     super(canvasWidth, canvasHeight, context);
     this.draw = this.draw.bind(this);
     this.y = Math.floor(Math.random() * 200) + 300;;
-    this.dy = Math.random() * 3 + 1;
+    this.dy = Math.random() * 3 + 1 * [-1,1][Math.floor(Math.random() * 1)];
     this.width = 120;
     this.height = 140;
     this.enemy = new Image();
@@ -267,7 +260,7 @@ class EnemyObject2 extends GameObject {
   }
 
   reset() {
-    this.x = 1100;
+    this.x = 1000 + Math.floor(Math.random() * 500);
     this.y = Math.floor(Math.random() * 200) + 300;
   }
 
@@ -292,7 +285,7 @@ class Obstacle extends GameObject {
     super(canvasWidth, canvasHeight, context);
     this.draw = this.draw.bind(this);
     this.obstacleWords = [
-                        ["REJECTED", 55],
+                        ["REJECTED", 50],
                         ["HIRING FREEZE", 160],
                         ["BAD CULTURAL FIT", 220],
                         ["UNDER-QUALIFIED", 220],
@@ -302,10 +295,9 @@ class Obstacle extends GameObject {
                         ["PLEASE DON'T CONTACT US AGAIN", 444],
                         ["WHO REFERED YOU?", 280]];
     this.y = Math.floor( Math.random() * 600 );
-    this.dy = Math.floor( Math.random() * 6);
     this.wordArr = this.obstacleWords[Math.floor(Math.random() * 8)];
     this.word = this.wordArr[0];
-    this.dx = Math.floor( Math.random() * 8) + 1;
+    this.dx = Math.floor( Math.random() * 5) + 4;
     this.vector = [1,-1][Math.floor(Math.random() * 2)]
   }
 
@@ -323,8 +315,7 @@ class Obstacle extends GameObject {
     this.y = Math.floor( Math.random() * 600 );
     this.wordArr = this.obstacleWords[Math.floor(Math.random() * 8)];
     this.vector = [1,-1][Math.floor(Math.random() * 2)];
-    this.dy = Math.floor( Math.random() * 6) * this.vector;
-    this.dx = Math.floor( Math.random() * 8) + 1;
+    this.dx = Math.floor( Math.random() * 5) + 4;
   }
 
   draw() {
@@ -332,17 +323,12 @@ class Obstacle extends GameObject {
       this.x = 1000;
       this.y = Math.floor( Math.random() * 600 );
       this.wordArr = this.obstacleWords[Math.floor(Math.random() * 8)];
+      this.word = this.wordArr[0];
       this.vector = [1,-1][Math.floor(Math.random() * 2)];
-      this.dy = Math.floor( Math.random() * 6) * this.vector;
-      this.dx = Math.floor( Math.random() * 8) + 1;
+      this.dx = Math.floor( Math.random() * 5) + 4;
     }
     this.x -= this.dx;
-    if (this.y > 600) {
-      this.dy = -1 * this.dy;
-    } else if (this.y < 0) {
-      this.dy = -1 * this.dy;
-    }
-    this.y = this.y + this.dy;
+    this.y = this.y;
     ctx.beginPath();
     ctx.fillText(this.word, this.x, this.y)
     ctx.fillStyle = "#ff0000";
@@ -415,6 +401,7 @@ const bg = new BackgroundObject(0,0);
 const e1 = new EnemyObject(1250);
 const e2 = new EnemyObject2(1000);
 const e3 = new EnemyObject2(1250);
+const e4 = new EnemyObject2(1500);
 const o1 = new Obstacle(1000);
 const o2 = new Obstacle(1000);
 const jp = new JobPoints(tc);
@@ -437,6 +424,7 @@ const draw = () => {
       e1.draw();
       e2.draw();
       e3.draw();
+      e4.draw();
       o1.draw();
       o2.draw();
       jp.updateJobPoints();
@@ -444,6 +432,7 @@ const draw = () => {
       tc.checkCollision(e1);
       tc.checkCollision(e2);
       tc.checkCollision(e3);
+      tc.checkCollision(e4);
       tc.checkCollision(o1);
       tc.checkCollision(o2);
     }
