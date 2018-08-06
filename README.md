@@ -16,7 +16,7 @@
 
 ## WireFrames
 
-![wireframe](assets/JavaScript Game Wireframe.png)
+![wireframe](./assets/JavaScript Game Wireframe.png)
 
 ## Architecture & Technologies
 
