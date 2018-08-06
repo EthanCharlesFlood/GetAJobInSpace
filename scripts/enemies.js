@@ -56,7 +56,7 @@ export class EnemyObject2 extends GameObject {
     this.width = 120;
     this.height = 140;
     this.enemy = new Image();
-    this.enemy.src = "/assets/imageedit_3_7734021827.png";
+    this.enemy.src = "assets/imageedit_3_7734021827.png";
     this.draw = this.draw.bind(this);
   }
 
