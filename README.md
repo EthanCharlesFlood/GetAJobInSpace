@@ -3,7 +3,7 @@
 ## A Simple Endless Runner
 
   For my javascript project I intend to make a simple endless runnner. I intend to implement spritesheets/sprites to give the game an office theme of a hiring manager avoiding overeager job applicants/or a job applicant avoiding pitfalls.  General theme decided haven't zeroed in on specifics yet.
-  
+
 ## Features & MVPs
 
 [ ] Start and pause functioning game.
@@ -16,7 +16,7 @@
 
 ## WireFrames
 
-![wireframe](https://github.com/EthanCharlesFlood/JavaScript-Project/blob/master/JavaScript%20Game%20Wireframe.png)
+![wireframe](/assets/JavaScript Game Wireframe.png)
 
 ## Architecture & Technologies
 
@@ -24,7 +24,7 @@
 
 I intend to implement sprites via spritesheets to my canvas drawings.
 
-## Implementation 
+## Implementation
 
 Day 1: Get the structure of the HTML page setup including the canvas element, get the Node modules including webpack up and running, begin implementing JavaScript class structures.
 
