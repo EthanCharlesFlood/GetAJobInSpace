@@ -15,9 +15,9 @@ class CharacterObject extends GameObject {
     this.rightPressed = false;
     this.spacePressed = false;
     this.character = new Image();
-    this.character.src = "./../assets/3DS - Regular Show Mordecai and Rigby in 8-Bit Land - Garrett Bobby Ferguson Jr Suit.png";
+    this.character.src = "EthanCharlesFlood.github.io/assets/3DS%20-%20Regular%20Show%20Mordecai%20and%20Rigby%20in%208-Bit%20Land%20-%20Garrett%20Bobby%20Ferguson%20Jr%20Suit.png";
     this.explosionImage = new Image();
-    this.explosionImage.src = "./../assets/exp2_0.png";
+    this.explosionImage.src = "EthanCharlesFlood.github.io/assets/exp2_0.png";
     this.checkCollision = this.checkCollision.bind(this);
     this.drawExplosion = this.drawExplosion.bind(this);
   }

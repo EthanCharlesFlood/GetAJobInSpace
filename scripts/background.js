@@ -7,7 +7,7 @@ class BackgroundObject extends GameObject {
     this.speed = 1;
     this.draw = this.draw.bind(this);
     this.background = new Image();
-    this.background.src = "./../assets/Starfield-4_1000x600.jpg";
+    this.background.src = "EthanCharlesFlood.github.io/assets/Starfield-4_1000x600.jpg";
   }
 
   draw() {
