@@ -9,7 +9,7 @@ export class EnemyObject extends GameObject {
     this.width = 120;
     this.height = 140;
     this.enemy = new Image();
-    this.enemy.src = "/assets/153262875432218109 (1).png";
+    this.enemy.src = "assets/153262875432218109 (1).png";
     console.log(ctx);
     console.log(this.context);
   }
