@@ -14,6 +14,7 @@ export class EnemyObject extends GameObject {
     console.log(this.context);
   }
 
+
   hitbox() {
     return {
       x1: this.x,
