@@ -18,6 +18,7 @@ class Obstacle extends GameObject {
     this.wordArr = this.obstacleWords[Math.floor(Math.random() * 8)];
     this.word = this.wordArr[0];
     this.dx = Math.floor( Math.random() * 5) + 4;
+    this.dy = [5,-5, 0, 0][Math.floor(Math.random() * 3)];
     this.vector = [1,-1][Math.floor(Math.random() * 2)];
     this.draw = this.draw.bind(this);
   }
@@ -47,9 +48,15 @@ class Obstacle extends GameObject {
       this.word = this.wordArr[0];
       this.vector = [1,-1][Math.floor(Math.random() * 2)];
       this.dx = Math.floor( Math.random() * 5) + 5;
+      this.dy = [2,-2, 0, 0][Math.floor(Math.random() * 3)];
+    }
+    if (this.y <= 25 && this.dy !== 0) {
+      this.dy = this.dy * -1;
+    } else if (this.y >= 580 && this.dy !== 0) {
+      this.dy = this.dy * -1;
     }
     this.x -= this.dx;
-    this.y = this.y;
+    this.y -= this.dy;
     this.context.beginPath();
     this.context.fillText(this.word, this.x, this.y);
     this.context.fillStyle = "#ff0000";

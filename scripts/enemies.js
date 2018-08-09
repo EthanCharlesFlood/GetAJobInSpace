@@ -52,7 +52,7 @@ export class EnemyObject2 extends GameObject {
     super(canvasWidth, canvasHeight);
     this.context = ctx;
     this.y = Math.floor(Math.random() * 200) + 300;
-    this.dy = Math.random() * 3 + 1 * [-1,1][Math.floor(Math.random() * 1)];
+    this.dy = Math.random() * 3 + 2 * [-1,1][Math.floor(Math.random() * 1)];
     this.width = 120;
     this.height = 140;
     this.enemy = new Image();
@@ -84,7 +84,7 @@ export class EnemyObject2 extends GameObject {
     } else if (this.y <= 0) {
       this.dy = this.dy * -1;
     }
-    this.x -= 3;
+    this.x -= 4;
     this.y -= this.dy;
     this.context.drawImage(this.enemy,200,5,62,60,this.x,this.y,60,60);
   }
