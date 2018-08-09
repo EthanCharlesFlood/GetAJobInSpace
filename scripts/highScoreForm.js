@@ -6,15 +6,15 @@ class HighScoreForm {
   }
 
   onHighScore(num) {
-    console.log($("form"));
-    $("form").removeAttr("hidden");
+    $("form").show();
   }
 
   onSubmit() {
-    let val = $("input").html();
+    let val = $("input").val();
     let id = this.jp.didGetAJob();
-    $("#" + id).html(val);
-    $("form").addAttr("hidden");
+    console.log(val);
+    $("#" + id).text(val);
+    $("form").hide();
   }
 
 }

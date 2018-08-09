@@ -59,15 +59,15 @@ class JobPoints {
         this.context.closePath();
       } else {
         this.context.beginPath();
-        this.context.fillText("CONGRATULATIONS ON YOUR SPACE JOB", 240, 300);
+        this.context.fillText("CONGRATULATIONS ON YOUR SPACE JOB", 200, 200);
         this.context.fillStyle = "#ff0000";
         this.context.closePath();
         this.context.beginPath();
-        this.context.fillText("Press Space to Receive your Paperwork", 240, 400);
+        this.context.fillText("Press Space to Receive your Paperwork", 245, 300);
         this.context.fillStyle = "#ff0000";
         this.context.closePath();
         this.context.beginPath();
-        this.context.fillText("Then Sign and Submit it on the right", 240, 500);
+        this.context.fillText("Then Sign and Submit it on the right", 260, 400);
         this.context.fillStyle = "#ff0000";
         this.context.closePath();
       }
