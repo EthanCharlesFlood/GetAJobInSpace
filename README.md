@@ -15,7 +15,7 @@
 
 ## WireFrames
 
-![wireframe](https://github.com/EthanCharlesFlood/GetAJobInSpace/assets/JavaScript%20Game%20Wireframe.png)
+![wireframe](https://github.com/EthanCharlesFlood/GetAJobInSpace/blob/master/assets/JavaScript%20Game%20Wireframe.png)
 
 ## Architecture & Technologies
 
