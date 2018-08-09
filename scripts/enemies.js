@@ -6,12 +6,11 @@ export class EnemyObject extends GameObject {
     this.draw = this.draw.bind(this);
     this.context = ctx;
     this.y = Math.floor(Math.random() * 200) + 300;
+    this.dx = 2 + (Math.random() * 2);
     this.width = 120;
     this.height = 140;
     this.enemy = new Image();
     this.enemy.src = "assets/153262875432218109 (1).png";
-    console.log(ctx);
-    console.log(this.context);
   }
 
 
@@ -25,8 +24,8 @@ export class EnemyObject extends GameObject {
   }
 
   reset() {
-    this.x = 1100;
-    this.y = Math.floor(Math.random() * 200) + 300;
+    this.x = 1000 + (Math.random() * 500);
+    this.y = Math.floor(Math.random() * 300) + 200;
   }
 
   draw() {
@@ -34,7 +33,7 @@ export class EnemyObject extends GameObject {
       this.x = 1100;
       this.y = Math.floor(Math.random() * 200) + 100;
     }
-    this.x -= 2;
+    this.x -= this.dx;
     if (this.c < 20) {
       this.context.drawImage(this.enemy,610,160,120,140,this.x,this.y,120,140);
       this.c += 1;

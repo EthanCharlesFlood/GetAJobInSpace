@@ -22,6 +22,8 @@ class CharacterObject extends GameObject {
     this.drawExplosion = this.drawExplosion.bind(this);
   }
 
+
+
   drawExplosion() {
     if (this.count < 30) {
       this.context.drawImage(this.explosionImage,0,0,65,65,this.x,this.y,65,65);
@@ -36,14 +38,7 @@ class CharacterObject extends GameObject {
       this.context.drawImage(this.explosionImage,0,195,65,65,this.x,this.y,65,65);
       this.count += 1;
     } else {
-      this.context.beginPath();
-      this.context.fillText("YOU DID NOT GET A JOB IN SPACE", 250, 300);
-      this.context.fillStyle = "#ff0000";
-      this.context.closePath();
-      this.context.beginPath();
-      this.context.fillText("Press Space to Reset", 375, 400);
-      this.context.fillStyle = "#ff0000";
-      this.context.closePath();
+      return null;
     }
   }
 

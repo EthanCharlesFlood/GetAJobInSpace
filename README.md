@@ -6,17 +6,17 @@
 
 ## Features & MVPs
 
-[ ] Start and pause functioning game.
+[] Start and pause functioning game.
 
-[ ] Infinite scrolling with player sprite moving with screen.
+[] Infinite scrolling with player sprite moving with screen.
 
-[ ] Jumping ability with semi-random seeded obstacles to avoid.
+[] Jumping ability with semi-random seeded obstacles to avoid.
 
-[ ] Scoring based on number of jumps or distance traveled
+[] Scoring based on number of jumps or distance traveled
 
 ## WireFrames
 
-![wireframe](./assets/JavaScript Game Wireframe.png)
+![wireframe](assets/JavaScript Game Wireframe.png)
 
 ## Architecture & Technologies
 

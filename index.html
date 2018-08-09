@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="master.css" type="text/css">
+    <link rel="shortcut icon" type="image/png" href="assets/oie_70eXSmWlklwF (1).png"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    <title></title>
+    <title>Get a Job IN SPACE</title>
   </head>
   <body>
     <img src="" alt="">
@@ -22,10 +23,14 @@
         <div class="scores">
           People Who Have Jobs in Space
           <ul id="space-scores">
-            <li class="highest-score">10000</li>
-            <li class="higher-score">1000</li>
-            <li class="high-score">100</li>
+            <li class="highest-score" id="0" value="10002">Greg</li>
+            <li class="higher-score" id="1" value="10001">Bill</li>
+            <li class="high-score" id="2" value="10000">Ethan</li>
           </ul>
+          <form class="input-name" hidden>
+            <input type="text" value="Enter Name" />
+            <button value="Enter Name" type="button" />
+          </form>
         </div>
         <div class="dev-info">
           Game by
@@ -40,7 +45,7 @@
         >
       </div>
     </div>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="bundle.js"></script>
   </body>
 </html>

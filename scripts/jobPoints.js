@@ -1,43 +1,77 @@
 class JobPoints {
   constructor(character, context) {
     this.jobPoints = 0;
-    this.characer = character;
+    this.character = character;
     this.context = context;
+    this.scores = $("#space-scores > li");
     this.updateJobPoints = this.updateJobPoints.bind(this);
     this.resetJobPoints = this.resetJobPoints.bind(this);
     this.draw = this.draw.bind(this);
+    this.didGetAJob = this.didGetAJob.bind(this);
+  }
+
+  didGetAJob() {
+    if (this.jobPoints > this.scores[0].value) {
+      return 0;
+    } else if (this.jobPoints > this.scores[1].value) {
+      return 1;
+    } else if (this.jobPoints > this.scores[2].value) {
+      return 2;
+    } else {
+      return null;
+    }
   }
 
   updateJobPoints() {
-    const dead = this.characer.dead;
+    const dead = this.character.dead;
     if (!dead) {
       this.jobPoints = Math.floor(this.jobPoints + (Math.random() * 10));
     }
     this.jobPointDisplay = `Job Points: ${this.jobPoints}`;
   }
 
-  updateHighScores() {
-    let scores = document.getElementById("space-scores");
-    if (this.jobPoints > scores[0].value) {
-
-    } else if (this.jobPoints > scores[1].value) {
-
-    } else if (this.jobPoints > scores[2].value) {
-
-    }
-  }
-
   resetJobPoints() {
-    // this.updateHighScores();
     this.jobPoints = 0;
     this.JobPointDisplay = `Job Points: ${this.jobPoints}`;
   }
 
   draw() {
-    this.context.beginPath();
-    this.context.fillText(this.jobPointDisplay, 25, 25);
-    this.context.fillStyle = "#ff0000";
-    this.context.closePath();
+    const dead = this.character.dead;
+    if (!dead) {
+      this.context.beginPath();
+      this.context.fillText(this.jobPointDisplay, 25, 25);
+      this.context.fillStyle = "#ff0000";
+      this.context.closePath();
+    } else {
+      this.didGetAJob();
+      this.context.beginPath();
+      this.context.fillText(this.jobPointDisplay, 25, 25);
+      this.context.fillStyle = "#ff0000";
+      this.context.closePath();
+      if (this.didGetAJob() === null) {
+        this.context.beginPath();
+        this.context.fillText("YOU DID NOT GET A JOB IN SPACE", 250, 300);
+        this.context.fillStyle = "#ff0000";
+        this.context.closePath();
+        this.context.beginPath();
+        this.context.fillText("Press Space to Reset", 375, 400);
+        this.context.fillStyle = "#ff0000";
+        this.context.closePath();
+      } else {
+        this.context.beginPath();
+        this.context.fillText("CONGRATULATIONS ON YOUR SPACE JOB", 240, 300);
+        this.context.fillStyle = "#ff0000";
+        this.context.closePath();
+        this.context.beginPath();
+        this.context.fillText("Press Space to Receive your Paperwork", 240, 400);
+        this.context.fillStyle = "#ff0000";
+        this.context.closePath();
+        this.context.beginPath();
+        this.context.fillText("Then Sign and Submit it on the right", 240, 500);
+        this.context.fillStyle = "#ff0000";
+        this.context.closePath();
+      }
+    }
   }
 }
 

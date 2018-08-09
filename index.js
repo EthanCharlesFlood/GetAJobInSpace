@@ -3,6 +3,7 @@ import Obstacle from "./scripts/obstacles.js";
 import BackgroundObject from "./scripts/background.js";
 import Menu from "./scripts/menu.js";
 import JobPoints from "./scripts/jobPoints.js";
+import HighScoreForm from "./scripts/highScoreForm.js";
 import { EnemyObject, EnemyObject2 } from "./scripts/enemies.js";
 
 let requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
@@ -15,6 +16,7 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 ctx.font = "30px Comic Sans MS, Comic Sans, cursive";
 
+
 let upPressed = false;
 let downPressed = false;
 let leftPressed = false;
@@ -24,15 +26,39 @@ let gameRunning = false;
 
 const tc = new CharacterObject(50, 50, ctx);
 const bg = new BackgroundObject(0,0, ctx);
-console.log(ctx);
 const e1 = new EnemyObject(1250, 0, ctx);
 const e2 = new EnemyObject2(1000, 0, ctx);
 const e3 = new EnemyObject2(1250, 0, ctx);
 const e4 = new EnemyObject2(1500, 0, ctx);
+const e5 = new EnemyObject(2500, 0, ctx);
+const e6 = new EnemyObject(3500, 0, ctx);
 const o1 = new Obstacle(1000, 0, ctx);
 const o2 = new Obstacle(1000, 0, ctx);
+const o3 = new Obstacle(1000, 0, ctx);
 const jp = new JobPoints(tc, ctx);
 const menu = new Menu(ctx);
+const hsf = new HighScoreForm(jp);
+
+$("button").click(()=> {
+  hsf.onSubmit();
+  resetGame();
+});
+
+const resetGame = () => {
+  gameStart = 0;
+  jp.resetJobPoints();
+  tc.reset();
+  e1.reset();
+  e2.reset();
+  e3.reset();
+  e4.reset();
+  e5.reset();
+  e6.reset();
+  o1.reset();
+  o2.reset();
+  o3.reset();
+};
+
 
 const keyDownHandler = (e) => {
   if (e.keyCode === 40) {
@@ -44,15 +70,11 @@ const keyDownHandler = (e) => {
     if (gameStart < 1) {
       gameStart = 1;
     } else if (gameStart > 0 && tc.dead) {
-      gameStart = 0;
-      jp.resetJobPoints();
-      tc.reset();
-      e1.reset();
-      e2.reset();
-      e3.reset();
-      e4.reset();
-      o1.reset();
-      o2.reset();
+      if (jp.didGetAJob() !== null) {
+        hsf.onHighScore();
+      } else {
+        resetGame();
+      }
     }
   } else if (e.keyCode === 39) {
     tc.rightPressed = true;
@@ -97,14 +119,19 @@ const draw = () => {
       e2.draw();
       e3.draw();
       e4.draw();
+      e5.draw();
+      e6.draw();
       o1.draw();
       o2.draw();
+      o3.draw();
       jp.updateJobPoints();
       jp.draw();
       tc.checkCollision(e1);
       tc.checkCollision(e2);
       tc.checkCollision(e3);
       tc.checkCollision(e4);
+      tc.checkCollision(e5);
+      tc.checkCollision(e6);
       tc.checkCollision(o1);
       tc.checkCollision(o2);
     }

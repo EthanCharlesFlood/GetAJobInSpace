@@ -46,7 +46,7 @@ class Obstacle extends GameObject {
       this.wordArr = this.obstacleWords[Math.floor(Math.random() * 8)];
       this.word = this.wordArr[0];
       this.vector = [1,-1][Math.floor(Math.random() * 2)];
-      this.dx = Math.floor( Math.random() * 5) + 4;
+      this.dx = Math.floor( Math.random() * 5) + 5;
     }
     this.x -= this.dx;
     this.y = this.y;
