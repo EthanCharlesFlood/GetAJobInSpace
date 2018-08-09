@@ -1,6 +1,4 @@
-# JavaScript-Project
-
-## Get a Job IN SPACE
+# Get a Job IN SPACE
 
   Do you want a job? How about a job in space? This endless runner utilizes jQuery, Canvas, HTML5, and JavaScript
   to create opportunities for you to avoid the pitfalls of the job hunt and if you are lucky enough get a job in space.
@@ -17,7 +15,7 @@
 
 ## WireFrames
 
-![wireframe](https://github.com/EthanCharlesFlood/GetAJobInSpace/assets/JavaScript Game Wireframe.png)
+![wireframe](https://github.com/EthanCharlesFlood/GetAJobInSpace/assets/JavaScript-Game-Wireframe.png)
 
 ## Architecture & Technologies
 
