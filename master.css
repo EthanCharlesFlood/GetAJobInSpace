@@ -73,3 +73,9 @@ span {
 button {
   height: 15px;
 }
+
+audio {
+  position: fixed;
+  left: 41%;
+  top: 85%;
+}

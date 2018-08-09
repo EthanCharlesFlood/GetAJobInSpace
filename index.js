@@ -138,6 +138,7 @@ const draw = () => {
       tc.checkCollision(e7);
       tc.checkCollision(o1);
       tc.checkCollision(o2);
+      tc.checkCollision(o3);
     }
   }
 };
