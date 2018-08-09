@@ -1,18 +1,19 @@
 # JavaScript-Project
 
-## A Simple Endless Runner
+## Get a Job IN SPACE
 
-  For my javascript project I intend to make a simple endless runnner. I intend to implement spritesheets/sprites to give the game an office theme of a hiring manager avoiding overeager job applicants/or a job applicant avoiding pitfalls.  General theme decided haven't zeroed in on specifics yet.
+  Do you want a job? How about a job in space? This endless runner utilizes jQuery, Canvas, HTML5, and JavaScript
+  to create opportunities for you to avoid the pitfalls of the job hunt and if you are lucky enough get a job in space.
 
 ## Features & MVPs
 
-[] Start and pause functioning game.
+[] Functioning game.
 
 [] Infinite scrolling with player sprite moving with screen.
 
-[] Jumping ability with semi-random seeded obstacles to avoid.
+[] Ability of player character to navigate screen and avoid randomly seeded obstacles.
 
-[] Scoring based on number of jumps or distance traveled
+[] Scoring based on distance traveled with locally stored high score.
 
 ## WireFrames
 
@@ -20,9 +21,13 @@
 
 ## Architecture & Technologies
 
-4 Main classes will govern the logic of the game. One will implement the menu system for the game.  There will be an object class that handles the creation of obstacles and the player sprite and hit detection among these things.  Will possibly use inheritance and a superclass because these two have separate concerns.  There will be a board class that will govern the board makeup and seeding of obstacles.  Finally there will be a game class which compiles all the classes into the playable game and causes the scrolling and handles player input.
+The game is divided into several classes for clean implementation. I utilized an object superclass and inheritance to create
+obstacle, enemy, and character classes representing the objects in the game.  There is a background class which renders the infinitely
+scrolling starscape, and a score and highscore class which implement scoring and the high score functionality.
 
-I intend to implement sprites via spritesheets to my canvas drawings.
+Objects are rendered onto the canvas via spritesheets, and hit detection between these objects is implemented via a bounding box algorithm.
+Jquery is utilized by the high score class to check the current high score and allow the user to save their name to the illustrious list of
+people who have jobs in space if they are diligent enough.
 
 ## Implementation
 
@@ -34,8 +39,8 @@ Day 3: Implement user controls for jumping and implement sprites/spritesheets to
 
 ## Bonuses
 
-[ ] Have flying obstacles attack the player as well.
+[] Implement high score and ability to save high score so that the best jobseekers are stored serverside.
 
-[ ] Have destroyable obstacles and an attack to do so with.
+[] Have destroyable obstacles and an attack to do so with.
 
-[ ] Gradually increasing speed of game as time goes on.
+[] Gradually increasing speed of game as time goes on.
