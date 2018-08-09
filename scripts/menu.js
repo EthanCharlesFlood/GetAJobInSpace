@@ -13,7 +13,7 @@ class Menu {
     this.context.fillStyle = "#ff0000";
     this.context.closePath();
     this.context.beginPath();
-    this.context.fillText("Press Space to Start the Hunt", 350, 400);
+    this.context.fillText("Press Space to Start the Hunt", 330, 400);
     this.context.fillStyle = "#ff0000";
     this.context.closePath();
   }
