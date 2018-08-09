@@ -32,6 +32,7 @@ const e3 = new EnemyObject2(1250, 0, ctx);
 const e4 = new EnemyObject2(1500, 0, ctx);
 const e5 = new EnemyObject(2500, 0, ctx);
 const e6 = new EnemyObject(3500, 0, ctx);
+const e7 = new EnemyObject2(1750, 0, ctx);
 const o1 = new Obstacle(1000, 0, ctx);
 const o2 = new Obstacle(1000, 0, ctx);
 const o3 = new Obstacle(1000, 0, ctx);
@@ -54,6 +55,7 @@ const resetGame = () => {
   e4.reset();
   e5.reset();
   e6.reset();
+  e7.reset();
   o1.reset();
   o2.reset();
   o3.reset();
@@ -121,6 +123,7 @@ const draw = () => {
       e4.draw();
       e5.draw();
       e6.draw();
+      e7.draw();
       o1.draw();
       o2.draw();
       o3.draw();
@@ -132,6 +135,7 @@ const draw = () => {
       tc.checkCollision(e4);
       tc.checkCollision(e5);
       tc.checkCollision(e6);
+      tc.checkCollision(e7);
       tc.checkCollision(o1);
       tc.checkCollision(o2);
     }
