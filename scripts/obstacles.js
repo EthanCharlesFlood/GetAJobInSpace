@@ -50,9 +50,9 @@ class Obstacle extends GameObject {
       this.dx = Math.floor( Math.random() * 5) + 5;
       this.dy = [2,-2, 0, 0][Math.floor(Math.random() * 3)];
     }
-    if (this.y <= 25 && this.dy !== 0) {
+    if (this.y <= 25 && this.dy !== 0 && this.dy > 0) {
       this.dy = this.dy * -1;
-    } else if (this.y >= 580 && this.dy !== 0) {
+    } else if (this.y >= 580 && this.dy !== 0 && this.dy < 0) {
       this.dy = this.dy * -1;
     }
     this.x -= this.dx;
