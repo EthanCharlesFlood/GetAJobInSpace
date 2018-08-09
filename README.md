@@ -39,6 +39,8 @@ Day 3: Implement user controls for jumping and implement sprites/spritesheets to
 
 ## Bonuses
 
+[] Implement background music and explosion sound effect on player leaving labor participation pool.
+
 [] Implement high score and ability to save high score so that the best jobseekers are stored serverside.
 
 [] Have destroyable obstacles and an attack to do so with.
