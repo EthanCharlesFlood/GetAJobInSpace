@@ -27,12 +27,12 @@ class JobPoints {
     if (!dead) {
       this.jobPoints = Math.floor(this.jobPoints + (Math.random() * 10));
     }
-    this.jobPointDisplay = `Job Points: ${this.jobPoints}`;
+    this.jobPointDisplay = `Years Spent Searching for a Job: ${this.jobPoints}`;
   }
 
   resetJobPoints() {
     this.jobPoints = 0;
-    this.JobPointDisplay = `Job Points: ${this.jobPoints}`;
+    this.JobPointDisplay = `Years Spent Searching for a Job: ${this.jobPoints}`;
   }
 
   draw() {
