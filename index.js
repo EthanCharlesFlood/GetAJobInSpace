@@ -5,6 +5,9 @@ import Menu from "./scripts/menu.js";
 import JobPoints from "./scripts/jobPoints.js";
 import HighScoreForm from "./scripts/highScoreForm.js";
 import { EnemyObject, EnemyObject2 } from "./scripts/enemies.js";
+import firebase from 'firebase';
+import 'firebase/database';
+var app = firebase.initializeApp({});
 
 let requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 let now, delta;
