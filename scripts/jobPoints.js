@@ -1,3 +1,7 @@
+import firebase from 'firebase';
+import 'firebase/database';
+var app = firebase.initializeApp({});
+
 class JobPoints {
   constructor(character, context) {
     this.jobPoints = 0;
