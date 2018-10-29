@@ -1,3 +1,6 @@
+import Firebase from "firebase";
+import "firebase/databse";
+
 class HighScoreForm {
   constructor(jp) {
     this.jp = jp;
