@@ -1,5 +1,6 @@
 import Firebase from "firebase";
 import "firebase/databse";
+var app = firebase.initializeApp({});
 
 class HighScoreForm {
   constructor(jp) {
