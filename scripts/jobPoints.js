@@ -8,6 +8,8 @@ class JobPoints {
     this.resetJobPoints = this.resetJobPoints.bind(this);
     this.draw = this.draw.bind(this);
     this.didGetAJob = this.didGetAJob.bind(this);
+    this.alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    this.alphabetSelector = 0;
   }
 
   didGetAJob() {
@@ -21,6 +23,7 @@ class JobPoints {
       return null;
     }
   }
+
 
   updateJobPoints() {
     const dead = this.character.dead;
