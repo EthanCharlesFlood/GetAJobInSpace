@@ -7,6 +7,8 @@ class HighScoreForm {
     this.jp = jp;
     this.onHighScore = this.onHighScore.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    this.alphabetSelector = 0;
   }
 
   onHighScore(num) {
