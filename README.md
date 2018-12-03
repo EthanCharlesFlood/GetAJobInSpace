@@ -10,9 +10,7 @@
 
 ## Architecture & Technologies
 
-The game is divided into several classes for clean implementation via OOP practices. I utilized an object superclass and inheritance to create
-obstacle, enemy, and character classes representing the objects in the game.  There is a background class which renders the infinitely
-scrolling starscape, and a score and highscore class which implement scoring and the high score functionality.
+The game is divided into several classes for clean implementation via OOP practices. I utilized an object superclass and inheritance to create obstacle, enemy, and character classes representing the objects in the game.  There is a background class which renders the infinitely scrolling starscape, and a score and highscore class which implement scoring and the high score functionality.
 
 ```
 class GameObject {
@@ -32,7 +30,7 @@ class GameObject {
 export default GameObject;
 ```
 
-Objects are rendered onto the canvas via spritesheets, clipping the sheets at different coordinates to render animations for the objects in the game.
+Objects are rendered onto the canvas via spritesheets, clipping the sheets at different coordinates to render animations for the objects in the game. These spritesheets are utilized with the requestAnimationFrame shim to render a stable and smooth experience with different animations for different events in the game.
 
 ```
 drawExplosion() {
