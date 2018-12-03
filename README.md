@@ -77,17 +77,3 @@ checkCollision(object) {
 
 Jquery is utilized by the high score class to check the current high score and allow the user to save their name to the illustrious list of
 people who have jobs in space if they are diligent enough.
-
-
-
-
-
-## Bonuses
-
-[] Implement background music and explosion sound effect on player leaving labor participation pool.
-
-[] Implement high score and ability to save high score so that the best jobseekers are stored serverside.
-
-[] Have destroyable obstacles and an attack to do so with.
-
-[] Gradually increasing speed of game as time goes on.
