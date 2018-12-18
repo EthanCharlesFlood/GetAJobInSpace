@@ -12,7 +12,7 @@ class Collectable extends GameObject {
     return {
       x1: this.x,
       x2: this.x + 50,
-      y1: this.y + 15,
+      y1: this.y,
       y2: this.y + 50,
     };
   }
