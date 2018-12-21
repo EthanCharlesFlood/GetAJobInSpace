@@ -23,7 +23,12 @@ class Collectable extends GameObject {
   }
 
   draw() {
-
+    if (this.x < -200) {
+      this.x = 1000 + Math.floor(Math.random() * 500);
+    }
+    this.x -= 4;
+    this.y -= this.dy;
+    this.context.drawImage(this.enemy,200,5,62,60,this.x,this.y,60,60);
   }
 }
 
