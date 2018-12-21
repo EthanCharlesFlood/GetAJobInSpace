@@ -6,6 +6,8 @@ class Collectable extends GameObject {
     this.context = ctx;
     this.collected = false;
     this.dx = 10;
+    this.referral = new Image();
+    this.referral.src = "assets/imageedit_3_7734021827.png";
   }
 
   hitbox() {
