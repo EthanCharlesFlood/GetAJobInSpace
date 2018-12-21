@@ -17,6 +17,11 @@ class Collectable extends GameObject {
     };
   }
 
+  reset() {
+    this.x = 1000;
+    this.y = Math.floor( Math.random() * 600 );
+  }
+
   draw() {
 
   }
