@@ -8,6 +8,7 @@ class Collectable extends GameObject {
     this.dx = 10;
     this.referral = new Image();
     this.referral.src = "assets/imageedit_3_7734021827.png";
+    this.collected = false;
   }
 
   hitbox() {
@@ -23,6 +24,7 @@ class Collectable extends GameObject {
     this.x = 1000;
     this.y = Math.floor( Math.random() * 600 );
   }
+
 
   draw() {
     if (this.x < -200) {
