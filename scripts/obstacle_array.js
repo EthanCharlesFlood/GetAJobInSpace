@@ -4,7 +4,7 @@ class ObastacleArray {
   }
 
   hitbox() {
-
+    
   }
 
   reset() {
@@ -12,7 +12,7 @@ class ObastacleArray {
   }
 
   draw() {
-    
+    this.obstacles.forEach(obstacle => obstacle.draw);
   }
 
 }
