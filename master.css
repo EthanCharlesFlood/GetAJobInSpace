@@ -48,6 +48,9 @@ span {
 }
 
 .dev-info {
+  position: fixed;
+  left: 44%;
+  top: 90%;
   text-decoration: none;
   border-style: inset;
   padding: 5px;
@@ -61,8 +64,8 @@ span {
 
 .game-canvas {
   position: fixed;
-  left: 400px;
-  top: 200px;
+  left: 22%;
+  top: 20%;
   background-color: #fff;
   border: 5px solid white;
 }
