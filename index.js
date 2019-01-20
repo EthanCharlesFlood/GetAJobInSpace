@@ -5,6 +5,7 @@ import Menu from "./scripts/menu.js";
 import JobPoints from "./scripts/jobPoints.js";
 import HighScoreForm from "./scripts/highScoreForm.js";
 import { EnemyObject, EnemyObject2 } from "./scripts/enemies.js";
+import Collectable from "./scripts/Collectable.js";
 
 
 
@@ -41,6 +42,7 @@ const o3 = new Obstacle(21000, 0, ctx);
 const jp = new JobPoints(tc, ctx);
 const menu = new Menu(ctx);
 const hsf = new HighScoreForm(jp);
+const clctb = new Collectable();
 
 $("button").click(()=> {
   hsf.onSubmit();
