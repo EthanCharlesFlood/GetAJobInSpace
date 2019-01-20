@@ -5,7 +5,7 @@ import Menu from "./scripts/menu.js";
 import JobPoints from "./scripts/jobPoints.js";
 import HighScoreForm from "./scripts/highScoreForm.js";
 import { EnemyObject, EnemyObject2 } from "./scripts/enemies.js";
-import Collectable from "./scripts/collectable.js";
+import Collectable from "./scripts/collectables.js";
 import Tutorial from "./scripts/tutorial.js";
 
 
@@ -30,25 +30,20 @@ let gameRunning = false;
 
 const tc = new CharacterObject(50, 50, ctx);
 const bg = new BackgroundObject(0,0, ctx);
-const e1 = new EnemyObject(1250, 0, ctx);
-const e2 = new EnemyObject(11250, 0, ctx);
-const e3 = new EnemyObject(21250, 0, ctx);
-const e4 = new EnemyObject2(1000, 0, ctx);
-const e5 = new EnemyObject2(6000, 0, ctx);
-const e6 = new EnemyObject2(11000, 0, ctx);
-const e7 = new EnemyObject2(16000, 0, ctx);
-const o1 = new Obstacle(1000, 0, ctx);
-const o2 = new Obstacle(11000, 0, ctx);
-const o3 = new Obstacle(21000, 0, ctx);
-const jp = new JobPoints(tc, ctx);
+// const e1 = new EnemyObject(1250, 0, ctx);
+// const e2 = new EnemyObject(11250, 0, ctx);
+// const e3 = new EnemyObject(21250, 0, ctx);
+// const e4 = new EnemyObject2(1000, 0, ctx);
+// const e5 = new EnemyObject2(6000, 0, ctx);
+// const e6 = new EnemyObject2(11000, 0, ctx);
+// const e7 = new EnemyObject2(16000, 0, ctx);
+// const o1 = new Obstacle(1000, 0, ctx);
+// const o2 = new Obstacle(11000, 0, ctx);
+// const o3 = new Obstacle(21000, 0, ctx);
+// const jp = new JobPoints(tc, ctx);
 const menu = new Menu(ctx);
-const hsf = new HighScoreForm(jp);
-const clctb = new Collectable();
-
-$("button").click(()=> {
-  hsf.onSubmit();
-  resetGame();
-});
+// const hsf = new HighScoreForm(jp);
+const clctb = new Collectable(300,300,ctx);
 
 const resetGame = () => {
   gameStart = 0;
@@ -122,28 +117,29 @@ const draw = () => {
     } else {
       bg.draw();
       tc.draw();
-      e1.draw();
-      e2.draw();
-      e3.draw();
-      e4.draw();
-      e5.draw();
-      e6.draw();
-      e7.draw();
-      o1.draw();
-      o2.draw();
-      o3.draw();
-      jp.updateJobPoints();
-      jp.draw();
-      tc.checkCollision(e1);
-      tc.checkCollision(e2);
-      tc.checkCollision(e3);
-      tc.checkCollision(e4);
-      tc.checkCollision(e5);
-      tc.checkCollision(e6);
-      tc.checkCollision(e7);
-      tc.checkCollision(o1);
-      tc.checkCollision(o2);
-      tc.checkCollision(o3);
+      // e1.draw();
+      // e2.draw();
+      // e3.draw();
+      // e4.draw();
+      // e5.draw();
+      // e6.draw();
+      // e7.draw();
+      // o1.draw();
+      // o2.draw();
+      // o3.draw();
+      // jp.updateJobPoints();
+      // jp.draw();
+      // tc.checkCollision(e1);
+      // tc.checkCollision(e2);
+      // tc.checkCollision(e3);
+      // tc.checkCollision(e4);
+      // tc.checkCollision(e5);
+      // tc.checkCollision(e6);
+      // tc.checkCollision(e7);
+      // tc.checkCollision(o1);
+      // tc.checkCollision(o2);
+      // tc.checkCollision(o3);
+      clctb.draw();
     }
   }
 };

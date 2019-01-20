@@ -1,6 +1,7 @@
 class JobPoints {
   constructor(character, context) {
     this.jobPoints = 0;
+    this.collected = 0;
     this.character = character;
     this.context = context;
     this.scores = $("#space-scores > li");
@@ -11,14 +12,10 @@ class JobPoints {
   }
 
   didGetAJob() {
-    if (this.jobPoints > this.scores[0].value) {
-      return 0;
-    } else if (this.jobPoints > this.scores[1].value) {
-      return 1;
-    } else if (this.jobPoints > this.scores[2].value) {
-      return 2;
+    if (this.character.dead && this.jobPoints && this.collected) {
+      return true;
     } else {
-      return null;
+      return false;
     }
   }
 
@@ -26,7 +23,7 @@ class JobPoints {
   updateJobPoints() {
     const dead = this.character.dead;
     if (!dead) {
-      this.jobPoints = Math.floor(this.jobPoints + (Math.random() * 10));
+      this.jobPoints = Math.floor(this.jobPoints);
     }
     this.jobPointDisplay = `Years Spent Searching for a Job: ${this.jobPoints}`;
   }

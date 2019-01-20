@@ -11,6 +11,7 @@ export class EnemyObject extends GameObject {
     this.height = 140;
     this.enemy = new Image();
     this.enemy.src = "assets/153262875432218109 (1).png";
+    this.harmful = true;
   }
 
 
@@ -58,6 +59,7 @@ export class EnemyObject2 extends GameObject {
     this.enemy = new Image();
     this.enemy.src = "assets/imageedit_3_7734021827.png";
     this.draw = this.draw.bind(this);
+    this.harmful = true;
   }
 
   hitbox() {

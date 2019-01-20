@@ -56,10 +56,19 @@ class CharacterObject extends GameObject {
         playerHitbox.x1 < objectHitbox.x2 &&
         playerHitbox.x2 > objectHitbox.x1 &&
         playerHitbox.y1 < objectHitbox.y2 &&
-        playerHitbox.y2 > objectHitbox.y1
+        playerHitbox.y2 > objectHitbox.y1 &&
+        object.harmful === true
       ) {
         this.dead = true;
         return true;
+      } else if (
+        playerHitbox.x1 < objectHitbox.x2 &&
+        playerHitbox.x2 > objectHitbox.x1 &&
+        playerHitbox.y1 < objectHitbox.y2 &&
+        playerHitbox.y2 > objectHitbox.y1 &&
+        object.harmful === false
+      ) {
+        object.collected = true;
       }
     }
   }

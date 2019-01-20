@@ -21,6 +21,7 @@ class Obstacle extends GameObject {
     this.dy = [5,-5, 0, 0][Math.floor(Math.random() * 3)];
     this.vector = [1,-1][Math.floor(Math.random() * 2)];
     this.draw = this.draw.bind(this);
+    this.harmful = true;
   }
 
   hitbox() {
