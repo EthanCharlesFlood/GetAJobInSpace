@@ -5,7 +5,8 @@ import Menu from "./scripts/menu.js";
 import JobPoints from "./scripts/jobPoints.js";
 import HighScoreForm from "./scripts/highScoreForm.js";
 import { EnemyObject, EnemyObject2 } from "./scripts/enemies.js";
-import Collectable from "./scripts/Collectable.js";
+import Collectable from "./scripts/collectable.js";
+import Tutorial from "./scripts/tutorial.js";
 
 
 
