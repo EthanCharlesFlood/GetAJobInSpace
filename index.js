@@ -134,6 +134,7 @@ const draw = () => {
     if (gameStart < 1) {
       bg.draw();
       menu.draw();
+      tc.draw();
     } else {
       bg.draw();
       tc.draw();

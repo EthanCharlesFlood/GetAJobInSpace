@@ -12,7 +12,7 @@ class JobPoints {
   }
 
   didGetAJob() {
-    if (this.character.dead && this.jobPoints > Math.floor(Math.random() * 10000) && this.collected === 12) {
+    if (this.character.dead && this.jobPoints > 5000 && this.collected === 10) {
       return true;
     } else {
       return false;
@@ -38,27 +38,27 @@ class JobPoints {
     if (!dead) {
       this.context.beginPath();
       this.context.fillText(this.jobPointDisplay, 25, 25);
-      this.context.fillStyle = "#ff0000";
+      this.context.fillStyle = "#FFFFFF";
       this.context.closePath();
     } else {
       this.didGetAJob();
       this.context.beginPath();
       this.context.fillText(this.jobPointDisplay, 25, 25);
-      this.context.fillStyle = "#ff0000";
+      this.context.fillStyle = "#FFFFFF";
       this.context.closePath();
       if (this.didGetAJob() === false) {
         this.context.beginPath();
         this.context.fillText("YOU DID NOT GET A JOB IN SPACE", 250, 300);
-        this.context.fillStyle = "#ff0000";
+        this.context.fillStyle = "#FFFFFF";
         this.context.closePath();
         this.context.beginPath();
         this.context.fillText("Press Space to Reset", 375, 400);
-        this.context.fillStyle = "#ff0000";
+        this.context.fillStyle = "#FFFFFF";
         this.context.closePath();
       } else {
         this.context.beginPath();
         this.context.fillText("CONGRATULATIONS ON YOUR SPACE JOB", 200, 200);
-        this.context.fillStyle = "#ff0000";
+        this.context.fillStyle = "#FFFFFF";
         this.context.closePath();
       }
     }

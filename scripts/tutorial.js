@@ -25,7 +25,7 @@ class Tutorial {
     if (this.counter < 100) {
       this.context.beginPath();
       this.context.fillText("Navigate with the arrow keys.", 330, 400);
-      this.context.fillStyle = "#ff0000";
+      this.context.fillStyle = "#FFFFFF";
       this.context.closePath();
       if (this.upPressed === true || this.downPressed == true || this.leftPressed == true || this.rightPressed == true) {
         this.counter += 1;
@@ -33,13 +33,13 @@ class Tutorial {
     } else if (this.counter < 150) {
       this.context.beginPath();
       this.context.fillText("Dodge enemies and obstacles.", 330, 400);
-      this.context.fillStyle = "#ff0000";
+      this.context.fillStyle = "#FFFFFF";
       this.context.closePath();
       this.demoEnemy();
     } else if (this.counter < 200) {
       this.context.beginPath();
       this.context.fillText("Collect opportunities as they appear.", 330, 400);
-      this.context.fillStyle = "#ff0000";
+      this.context.fillStyle = "#FFFFFF";
       this.context.closePath();
       this.demoCollect();
     } else {

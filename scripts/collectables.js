@@ -17,6 +17,7 @@ class Collectable extends GameObject {
     this.collectionNoise.src = "assets/131660__bertrof__game-sound-correct.wav";
     this.drawCollection = this.drawCollection.bind(this);
     this.playCollectionNoise = this.playCollectionNoise.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   hitbox() {
@@ -26,6 +27,13 @@ class Collectable extends GameObject {
       y1: this.y,
       y2: this.y + 50,
     };
+  }
+
+  reset() {
+    let heights = [50,150,250,350,450];
+    this.collected = false;
+    this.x = 1000;
+    this.y = heights[Math.floor(Math.random * 5)];
   }
 
   playCollectionNoise() {
@@ -62,11 +70,18 @@ class Collectable extends GameObject {
       this.context.drawImage(this.collectionImage,811,303,50,50,this.x,this.y,50,50);
       this.count += 1;
     } else {
-      return null;
+      this.collected = false;
+      this.count = 0;
+      this.x = 1500;
+      this.y = 100 + (Math.random() * 500);
     }
   }
 
   draw() {
+    if (this.x < -50) {
+      this.x = 1500;
+      this.y = 100 + (Math.random() * 500);
+    }
     if (this.collected === true) {
       this.drawCollection();
     }  else if (this.collected === false) {

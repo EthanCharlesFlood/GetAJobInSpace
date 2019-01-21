@@ -13,6 +13,7 @@ export class EnemyObject extends GameObject {
     this.enemy.src = "assets/153262875432218109 (1).png";
     this.harmful = true;
     this.heights1 = [100,200,300,400,500];
+    this.dy = 5;
   }
 
 

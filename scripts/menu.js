@@ -24,25 +24,29 @@ class Menu {
   draw() {
     this.context.beginPath();
     this.context.fillText("Get a Job", 435, 100);
-    this.context.fillStyle = "#ff0000";
+    this.context.fillStyle = "#FFFFFF";
     this.context.closePath();
     this.context.beginPath();
     this.context.fillText("IN SPACE", 430, 200);
-    this.context.fillStyle = "#ff0000";
+    this.context.fillStyle = "#FFFFFF";
     this.context.closePath();
     this.context.beginPath();
-    this.context.fillText("Press Space to Start the Hunt", 330, 300);
-    this.context.fillStyle = "#ff0000";
+    this.context.fillText("Navigate space with the arrow keys", 300, 300);
+    this.context.fillStyle = "#FFFFFF";
+    this.context.closePath();
+    this.context.beginPath();
+    this.context.fillText("Press Space to Start the Hunt", 330, 400);
+    this.context.fillStyle = "#FFFFFF";
     this.context.closePath();
     if (this.selector === 0) {
       this.context.beginPath();
-      this.context.fillText("PLAY", 450, 400);
-      this.context.fillStyle = "#ff0000";
+      this.context.fillText("PLAY", 450, 500);
+      this.context.fillStyle = "#FFFFFF";
       this.context.closePath();
     } else if (this.selector === 1) {
       this.context.beginPath();
-      this.context.fillText("TUTORIAL", 450, 400);
-      this.context.fillStyle = "#ff0000";
+      this.context.fillText("TUTORIAL", 450, 500);
+      this.context.fillStyle = "#FFFFFF";
       this.context.closePath();
     }
   }

@@ -57,7 +57,7 @@ class Obstacle extends GameObject {
     // this.y -= this.dy;
     this.context.beginPath();
     this.context.fillText(this.word, this.x, this.y);
-    this.context.fillStyle = "#ff0000";
+    this.context.fillStyle = "#FFFFFF";
     this.context.closePath();
   }
 }
