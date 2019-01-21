@@ -43,7 +43,7 @@ const bg = new BackgroundObject(0,0, ctx);
 // const jp = new JobPoints(tc, ctx);
 const menu = new Menu(ctx);
 // const hsf = new HighScoreForm(jp);
-const clctb = new Collectable(300,300,ctx);
+const clctb = new Collectable(1000,300,ctx);
 
 const resetGame = () => {
   gameStart = 0;
@@ -127,6 +127,7 @@ const draw = () => {
       // o1.draw();
       // o2.draw();
       // o3.draw();
+      clctb.draw();
       // jp.updateJobPoints();
       // jp.draw();
       // tc.checkCollision(e1);
@@ -139,7 +140,7 @@ const draw = () => {
       // tc.checkCollision(o1);
       // tc.checkCollision(o2);
       // tc.checkCollision(o3);
-      clctb.draw();
+      tc.checkCollision(clctb);
     }
   }
 };
