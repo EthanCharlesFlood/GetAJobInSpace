@@ -30,7 +30,7 @@ let gameRunning = false;
 
 const tc = new CharacterObject(50, 50, ctx);
 const bg = new BackgroundObject(0,0, ctx);
-// const e1 = new EnemyObject(1250, 0, ctx);
+const e1 = new EnemyObject(1250, 0, ctx);
 // const e2 = new EnemyObject(11250, 0, ctx);
 // const e3 = new EnemyObject(21250, 0, ctx);
 // const e4 = new EnemyObject2(1000, 0, ctx);
@@ -117,7 +117,7 @@ const draw = () => {
     } else {
       bg.draw();
       tc.draw();
-      // e1.draw();
+      e1.draw();
       // e2.draw();
       // e3.draw();
       // e4.draw();
@@ -130,7 +130,7 @@ const draw = () => {
       clctb.draw();
       // jp.updateJobPoints();
       // jp.draw();
-      // tc.checkCollision(e1);
+      tc.checkCollision(e1);
       // tc.checkCollision(e2);
       // tc.checkCollision(e3);
       // tc.checkCollision(e4);
