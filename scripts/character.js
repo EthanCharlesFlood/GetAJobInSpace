@@ -9,6 +9,7 @@ class CharacterObject extends GameObject {
     this.height = 50;
     this.dead = false;
     this.count = 0;
+    this.collected = 0;
     this.upPressed = false;
     this.downPressed = false;
     this.leftPressed = false;
@@ -69,6 +70,7 @@ class CharacterObject extends GameObject {
         object.harmful === false
       ) {
         object.collected = true;
+        this.collected++;
       }
     }
   }
