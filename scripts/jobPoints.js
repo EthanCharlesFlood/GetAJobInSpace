@@ -12,7 +12,7 @@ class JobPoints {
   }
 
   didGetAJob() {
-    if (this.character.dead && this.jobPoints > 5000 && this.collected === 10) {
+    if (this.character.dead && this.jobPoints > 5000 && this.character.collected === 10) {
       return true;
     } else {
       return false;
