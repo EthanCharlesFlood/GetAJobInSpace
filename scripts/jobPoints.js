@@ -12,7 +12,7 @@ class JobPoints {
   }
 
   didGetAJob() {
-    if (this.character.dead && this.jobPoints && this.collected) {
+    if (this.character.dead && this.jobPoints > Math.floor(Math.random() * 10000) && this.collected === 12) {
       return true;
     } else {
       return false;
@@ -23,7 +23,7 @@ class JobPoints {
   updateJobPoints() {
     const dead = this.character.dead;
     if (!dead) {
-      this.jobPoints = Math.floor(this.jobPoints);
+      this.jobPoints += 1;
     }
     this.jobPointDisplay = `Years Spent Searching for a Job: ${this.jobPoints}`;
   }
@@ -46,7 +46,7 @@ class JobPoints {
       this.context.fillText(this.jobPointDisplay, 25, 25);
       this.context.fillStyle = "#ff0000";
       this.context.closePath();
-      if (this.didGetAJob() === null) {
+      if (this.didGetAJob() === false) {
         this.context.beginPath();
         this.context.fillText("YOU DID NOT GET A JOB IN SPACE", 250, 300);
         this.context.fillStyle = "#ff0000";
@@ -58,14 +58,6 @@ class JobPoints {
       } else {
         this.context.beginPath();
         this.context.fillText("CONGRATULATIONS ON YOUR SPACE JOB", 200, 200);
-        this.context.fillStyle = "#ff0000";
-        this.context.closePath();
-        this.context.beginPath();
-        this.context.fillText("Press Space to Receive your Paperwork", 245, 300);
-        this.context.fillStyle = "#ff0000";
-        this.context.closePath();
-        this.context.beginPath();
-        this.context.fillText("Then Sign and Submit it on the right", 260, 400);
         this.context.fillStyle = "#ff0000";
         this.context.closePath();
       }

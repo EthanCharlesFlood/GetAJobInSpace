@@ -18,7 +18,8 @@ let interval = 1000/fps;
 let gameStart = 0;
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
-ctx.font = "30px Comic Sans MS, Comic Sans, cursive";
+ctx.font = "30px Comic Sans MS";
+ctx.fillStyle = "white";
 
 
 let upPressed = false;
@@ -28,72 +29,89 @@ let rightPressed = false;
 let spacePressed = false;
 let gameRunning = false;
 
-const tc = new CharacterObject(50, 50, ctx);
+const tc = new CharacterObject(300, 200, ctx);
 const bg = new BackgroundObject(0,0, ctx);
 const e1 = new EnemyObject(1250, 0, ctx);
-// const e2 = new EnemyObject(11250, 0, ctx);
-// const e3 = new EnemyObject(21250, 0, ctx);
-// const e4 = new EnemyObject2(1000, 0, ctx);
-// const e5 = new EnemyObject2(6000, 0, ctx);
-// const e6 = new EnemyObject2(11000, 0, ctx);
-// const e7 = new EnemyObject2(16000, 0, ctx);
-// const o1 = new Obstacle(1000, 0, ctx);
-// const o2 = new Obstacle(11000, 0, ctx);
-// const o3 = new Obstacle(21000, 0, ctx);
-// const jp = new JobPoints(tc, ctx);
+const o1 = new Obstacle(1000, 50, ctx);
+const o2 = new Obstacle(1000, 150, ctx);
+const o3 = new Obstacle(1000, 250, ctx);
+const o4 = new Obstacle(1000, 350, ctx);
+const o5 = new Obstacle(1000, 450, ctx);
+const o6 = new Obstacle(1000, 550, ctx);
+const o7 = new Obstacle(1000, 650, ctx);
+const jp = new JobPoints(tc, ctx);
 const menu = new Menu(ctx);
 // const hsf = new HighScoreForm(jp);
 const clctb = new Collectable(1000,300,ctx);
+// const tutorial = new Tutorial(ctx,e1,clctb);
 
 const resetGame = () => {
   gameStart = 0;
   jp.resetJobPoints();
   tc.reset();
   e1.reset();
-  e2.reset();
-  e3.reset();
-  e4.reset();
-  e5.reset();
-  e6.reset();
-  e7.reset();
   o1.reset();
   o2.reset();
   o3.reset();
+  o4.reset();
+  o5.reset();
+  o6.reset();
+  o7.reset();
 };
 
 
 const keyDownHandler = (e) => {
   if (e.keyCode === 40) {
     tc.upPressed = true;
+    // if (tutorial.done === false) {
+    //   tutorial.upPressed = true;
+    // }
   } else if (e.keyCode === 38) {
     tc.downPressed = true;
+    // if (tutorial.done === false) {
+    //   tutorial.downPressed = true;
+    // }
   } else if (e.keyCode === 32) {
     spacePressed = true;
     if (gameStart < 1) {
       gameStart = 1;
     } else if (gameStart > 0 && tc.dead) {
-      if (jp.didGetAJob() !== null) {
-        hsf.onHighScore();
-      } else {
         resetGame();
-      }
     }
   } else if (e.keyCode === 39) {
     tc.rightPressed = true;
+    // if (tutorial.done === false) {
+    //   tutorial.rightPressed = true;
+    // }
   } else if (e.keyCode === 37) {
     tc.leftPressed = true;
+    // if (tutorial.done === false) {
+    //   tutorial.leftPressed = true;
+    // }
   }
 };
 
 const keyUpHandler = (e) => {
   if (e.keyCode === 40) {
     tc.upPressed = false;
+    // if (tutorial.done === false) {
+    //   tutorial.upPressed = false;
+    // }
   } else if (e.keyCode === 38) {
     tc.downPressed = false;
+    // if (tutorial.done === false) {
+    //   tutorial.downPressed = false;
+    // }
   } else if (e.keyCode === 39) {
     tc.rightPressed = false;
+    // if (tutorial.done === false) {
+    //   tutorial.rightPressed = false;
+    // }
   } else if (e.keyCode === 37) {
     tc.leftPressed = false;
+    // if (tutorial.done === false) {
+    //   tutorial.leftPressed = false;
+    // }
   } else if (e.keyCode === 32) {
     spacePressed = false;
   }
@@ -101,7 +119,6 @@ const keyUpHandler = (e) => {
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
-
 
 const draw = () => {
   requestAnimationFrame(draw);
@@ -111,6 +128,9 @@ const draw = () => {
 
   if (delta > interval) {
     then = now - (delta % interval);
+    // bg.draw();
+    // tutorial.draw();
+    // tc.draw();
     if (gameStart < 1) {
       bg.draw();
       menu.draw();
@@ -118,28 +138,23 @@ const draw = () => {
       bg.draw();
       tc.draw();
       e1.draw();
-      // e2.draw();
-      // e3.draw();
-      // e4.draw();
-      // e5.draw();
-      // e6.draw();
-      // e7.draw();
-      // o1.draw();
-      // o2.draw();
-      // o3.draw();
+      o1.draw();
+      o2.draw();
+      o3.draw();
+      o4.draw();
+      o5.draw();
+      o6.draw();
       clctb.draw();
-      // jp.updateJobPoints();
-      // jp.draw();
+      jp.updateJobPoints();
+      jp.draw();
       tc.checkCollision(e1);
-      // tc.checkCollision(e2);
-      // tc.checkCollision(e3);
-      // tc.checkCollision(e4);
-      // tc.checkCollision(e5);
-      // tc.checkCollision(e6);
-      // tc.checkCollision(e7);
-      // tc.checkCollision(o1);
-      // tc.checkCollision(o2);
-      // tc.checkCollision(o3);
+      tc.checkCollision(o1);
+      tc.checkCollision(o2);
+      tc.checkCollision(o3);
+      tc.checkCollision(o4);
+      tc.checkCollision(o5);
+      tc.checkCollision(o6);
+      tc.checkCollision(o7);
       tc.checkCollision(clctb);
     }
   }

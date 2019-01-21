@@ -12,6 +12,7 @@ export class EnemyObject extends GameObject {
     this.enemy = new Image();
     this.enemy.src = "assets/153262875432218109 (1).png";
     this.harmful = true;
+    this.heights1 = [100,200,300,400,500];
   }
 
 
@@ -26,7 +27,7 @@ export class EnemyObject extends GameObject {
 
   reset() {
     this.x = 1000 + (Math.random() * 500);
-    this.y = Math.floor(Math.random() * 300) + 200;
+    this.y = this.heights1[Math.floor(Math.random() * 5)];
   }
 
   draw() {
