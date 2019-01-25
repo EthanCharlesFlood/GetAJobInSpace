@@ -43,7 +43,14 @@ class Tutorial {
       this.context.closePath();
       this.demoCollect();
     } else {
-      this.done = true;
+      this.context.beginPath();
+      this.context.fillText("Do your best and you may just earn a job in space!.", 330, 400);
+      this.context.fillStyle = "#FFFFFF";
+      this.context.closePath();
+      this.context.beginPath();
+      this.context.fillText("Press space to begin your jobsearch!.", 330, 400);
+      this.context.fillStyle = "#FFFFFF";
+      this.context.closePath();
     }
   }
 }
