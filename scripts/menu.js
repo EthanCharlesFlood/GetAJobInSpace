@@ -34,10 +34,6 @@ class Menu {
     this.context.fillText("Navigate space with the arrow keys", 300, 300);
     this.context.fillStyle = "#FFFFFF";
     this.context.closePath();
-    this.context.beginPath();
-    this.context.fillText("Press Space to Start the Hunt", 330, 400);
-    this.context.fillStyle = "#FFFFFF";
-    this.context.closePath();
     if (this.selector === 0) {
       this.context.beginPath();
       this.context.fillText("PLAY", 450, 500);
