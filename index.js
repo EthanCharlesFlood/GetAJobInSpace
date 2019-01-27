@@ -31,18 +31,18 @@ let gameRunning = false;
 
 const tc = new CharacterObject(300, 200, ctx);
 const bg = new BackgroundObject(0,0, ctx);
-const e1 = new EnemyObject(1250, 0, ctx);
-const o1 = new Obstacle(1000, 50, ctx);
-const o2 = new Obstacle(1000, 150, ctx);
-const o3 = new Obstacle(1000, 250, ctx);
-const o4 = new Obstacle(1000, 350, ctx);
-const o5 = new Obstacle(1000, 450, ctx);
-const o6 = new Obstacle(1000, 550, ctx);
-const o7 = new Obstacle(1000, 650, ctx);
+const e1 = new EnemyObject(tc,1250, 0, ctx);
+const o1 = new Obstacle(tc,1000, 50, ctx);
+const o2 = new Obstacle(tc,1000, 150, ctx);
+const o3 = new Obstacle(tc,1000, 250, ctx);
+const o4 = new Obstacle(tc,1000, 350, ctx);
+const o5 = new Obstacle(tc,1000, 450, ctx);
+const o6 = new Obstacle(tc,1000, 550, ctx);
+const o7 = new Obstacle(tc,1000, 650, ctx);
 const jp = new JobPoints(tc, ctx);
 const menu = new Menu(ctx);
 // const hsf = new HighScoreForm(jp);
-const clctb = new Collectable(1000,300,ctx);
+const clctb = new Collectable(tc,1000,300,ctx);
 // const tutorial = new Tutorial(ctx,e1,clctb);
 
 const resetGame = () => {
