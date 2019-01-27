@@ -2,13 +2,14 @@ import GameObject from "./object.js";
 
 export class EnemyObject extends GameObject {
   constructor(canvasWidth, canvasHeight, ctx) {
-    super(canvasWidth, canvasHeight);
+    super(pc,canvasWidth, canvasHeight);
     this.draw = this.draw.bind(this);
     this.context = ctx;
     this.y = Math.floor(Math.random() * 200) + 300;
     this.dx = 5;
     this.width = 120;
     this.height = 140;
+    this.pc = pc;
     this.enemy = new Image();
     this.enemy.src = "assets/153262875432218109 (1).png";
     this.harmful = true;
@@ -51,13 +52,14 @@ export class EnemyObject extends GameObject {
 }
 
 export class EnemyObject2 extends GameObject {
-  constructor(canvasWidth, canvasHeight, ctx) {
+  constructor(pc,canvasWidth, canvasHeight, ctx) {
     super(canvasWidth, canvasHeight);
     this.context = ctx;
     this.y = Math.floor(Math.random() * 200) + 300;
     this.dy = Math.random() * 3 + 2 * [-1,1][Math.floor(Math.random() * 1)];
     this.width = 120;
     this.height = 140;
+    this.pc = pc;
     this.enemy = new Image();
     this.enemy.src = "assets/imageedit_3_7734021827.png";
     this.draw = this.draw.bind(this);
