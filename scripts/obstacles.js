@@ -2,7 +2,7 @@ import GameObject from './object.js';
 
 class Obstacle extends GameObject {
   constructor(canvasWidth, canvasHeight, ctx) {
-    super(canvasWidth, canvasHeight);
+    super(pc,canvasWidth, canvasHeight);
     this.context = ctx;
     this.obstacleWords = [
                         ["REJECTED", 50],
@@ -16,6 +16,7 @@ class Obstacle extends GameObject {
                         ["WHO REFERED YOU?", 280]];
     this.wordArr = this.obstacleWords[Math.floor(Math.random() * 8)];
     this.word = this.wordArr[0];
+    this.pc = pc;
     this.dx = Math.floor( Math.random() * 5) + 4;
     // this.dy = [5,-5, 0, 0][Math.floor(Math.random() * 3)];
     this.vector = [1,-1][Math.floor(Math.random() * 2)];
