@@ -2,7 +2,7 @@ import GameObject from './object.js';
 
 class Collectable extends GameObject {
   constructor(canvasWidth, canvasHeight, ctx) {
-    super(canvasWidth, canvasHeight);
+    super(pc,canvasWidth, canvasHeight);
     this.context = ctx;
     this.collected = false;
     this.dx = 10;
@@ -11,6 +11,7 @@ class Collectable extends GameObject {
     this.referral.src = "assets/imageedit_3_7734021827.png";
     this.collected = false;
     this.harmful = false;
+    this.pc = pc;
     this.collectionImage = new Image();
     this.collectionImage.src = "assets/imageedit_1_3881340611.png";
     this.collectionNoise = new Audio();
