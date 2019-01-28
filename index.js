@@ -29,16 +29,18 @@ let rightPressed = false;
 let spacePressed = false;
 let gameRunning = false;
 
+const heights = [50,150,250,350,450,550,640].shuffle();
+
 const tc = new CharacterObject(300, 200, ctx);
 const bg = new BackgroundObject(0,0, ctx);
 const e1 = new EnemyObject(tc,1250, 0, ctx);
-const o1 = new Obstacle(tc,1000, 50, ctx);
-const o2 = new Obstacle(tc,1000, 150, ctx);
-const o3 = new Obstacle(tc,1000, 250, ctx);
-const o4 = new Obstacle(tc,1000, 350, ctx);
-const o5 = new Obstacle(tc,1000, 450, ctx);
-const o6 = new Obstacle(tc,1000, 550, ctx);
-const o7 = new Obstacle(tc,1000, 650, ctx);
+const o1 = new Obstacle(tc,1000, heights[0], ctx);
+const o2 = new Obstacle(tc,1000, heights[1], ctx);
+const o3 = new Obstacle(tc,1000, heights[2], ctx);
+const o4 = new Obstacle(tc,1000, heights[3], ctx);
+const o5 = new Obstacle(tc,1000, heights[4], ctx);
+const o6 = new Obstacle(tc,1000, heights[5], ctx);
+const o7 = new Obstacle(tc,1000, heights[6], ctx);
 const jp = new JobPoints(tc, ctx);
 
 const Obstacles = [o1,o2,o3,o4,o5,o6,o7];
