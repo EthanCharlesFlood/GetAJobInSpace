@@ -40,6 +40,9 @@ const o5 = new Obstacle(tc,1000, 450, ctx);
 const o6 = new Obstacle(tc,1000, 550, ctx);
 const o7 = new Obstacle(tc,1000, 650, ctx);
 const jp = new JobPoints(tc, ctx);
+
+const Obstacles = [o1,o2,o3,o4,o5,o6,o7];
+
 const menu = new Menu(ctx);
 // const hsf = new HighScoreForm(jp);
 const clctb = new Collectable(tc,1000,300,ctx);
