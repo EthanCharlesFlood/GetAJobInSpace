@@ -218,7 +218,7 @@ const draw = () => {
         tc.checkCollision(o6);
         tc.checkCollision(e1);
       }
-      jp.updateJobPoints();
+      // jp.updateJobPoints();
       jp.draw();
     }
   }

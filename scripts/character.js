@@ -97,7 +97,6 @@ class CharacterObject extends GameObject {
   }
 
   draw() {
-    console.log(this.collected);
     if (this.dead) {
       this.drawExplosion();
     } else {

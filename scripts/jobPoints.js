@@ -37,16 +37,16 @@ class JobPoints {
   draw() {
     const dead = this.character.dead;
     if (!dead) {
-      this.context.beginPath();
-      this.context.fillText(this.jobPointDisplay, 25, 25);
-      this.context.fillStyle = "#FFFFFF";
-      this.context.closePath();
+      // this.context.beginPath();
+      // this.context.fillText(this.jobPointDisplay, 25, 25);
+      // this.context.fillStyle = "#FFFFFF";
+      // this.context.closePath();
     } else {
-      this.didGetAJob();
-      this.context.beginPath();
-      this.context.fillText(this.jobPointDisplay, 25, 25);
-      this.context.fillStyle = "#FFFFFF";
-      this.context.closePath();
+      // this.didGetAJob();
+      // this.context.beginPath();
+      // this.context.fillText(this.jobPointDisplay, 25, 25);
+      // this.context.fillStyle = "#FFFFFF";
+      // this.context.closePath();
       if (this.didGetAJob() === false) {
         this.context.beginPath();
         this.context.fillText("YOU DID NOT GET A JOB IN SPACE", 250, 300);
@@ -58,7 +58,11 @@ class JobPoints {
         this.context.closePath();
       } else {
         this.context.beginPath();
-        this.context.fillText("CONGRATULATIONS ON YOUR SPACE JOB", 200, 200);
+        this.context.fillText("YOU DID IT!", 375, 250);
+        this.context.fillStyle = "#FFFFFF";
+        this.context.closePath();
+        this.context.beginPath();
+        this.context.fillText("CONGRATULATIONS ON YOUR SPACE JOB!", 200, 350);
         this.context.fillStyle = "#FFFFFF";
         this.context.closePath();
       }
