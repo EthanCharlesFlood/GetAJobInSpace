@@ -13,7 +13,7 @@ class JobPoints {
 
   didGetAJob() {
     let threshold = (Math.random() * 5) + 15;
-    if (this.character.collected > 1) {
+    if (this.character.collected > threshold) {
       return true;
     } else {
       return false;
