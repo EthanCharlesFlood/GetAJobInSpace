@@ -34,17 +34,10 @@ class Menu {
     this.context.fillText("Navigate space with the arrow keys", 300, 300);
     this.context.fillStyle = "#FFFFFF";
     this.context.closePath();
-    if (this.selector === 0) {
-      this.context.beginPath();
-      this.context.fillText("PLAY", 450, 500);
-      this.context.fillStyle = "#FFFFFF";
-      this.context.closePath();
-    } else if (this.selector === 1) {
-      this.context.beginPath();
-      this.context.fillText("TUTORIAL", 450, 500);
-      this.context.fillStyle = "#FFFFFF";
-      this.context.closePath();
-    }
+    this.context.beginPath();
+    this.context.fillText("PLAY", 450, 500);
+    this.context.fillStyle = "#FFFFFF";
+    this.context.closePath();
   }
 }
 
