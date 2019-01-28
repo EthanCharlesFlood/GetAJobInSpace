@@ -27,15 +27,23 @@ class Menu {
     this.context.fillStyle = "#FFFFFF";
     this.context.closePath();
     this.context.beginPath();
-    this.context.fillText("IN SPACE", 430, 200);
+    this.context.fillText("IN SPACE", 430, 150);
     this.context.fillStyle = "#FFFFFF";
     this.context.closePath();
     this.context.beginPath();
-    this.context.fillText("Navigate space with the arrow keys", 300, 300);
+    this.context.fillText("Navigate space with the arrow keys", 300, 250);
     this.context.fillStyle = "#FFFFFF";
     this.context.closePath();
     this.context.beginPath();
-    this.context.fillText("PLAY", 450, 400);
+    this.context.fillText("Avoid rejection notices and bad interviews!", 250, 350);
+    this.context.fillStyle = "#FFFFFF";
+    this.context.closePath();
+    this.context.beginPath();
+    this.context.fillText("Collect job postings and maybe you'll get a job in space!", 200, 450);
+    this.context.fillStyle = "#FFFFFF";
+    this.context.closePath();
+    this.context.beginPath();
+    this.context.fillText("PRESS SPACE TO PLAY", 350, 550);
     this.context.fillStyle = "#FFFFFF";
     this.context.closePath();
   }
