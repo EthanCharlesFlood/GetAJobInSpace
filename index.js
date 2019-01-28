@@ -29,6 +29,20 @@ let rightPressed = false;
 let spacePressed = false;
 let gameRunning = false;
 
+const shuffle = function (array) {
+	let currentIndex = array.length;
+  let temporaryValue, randomIndex;
+	while (0 !== currentIndex) {
+		randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex -= 1;
+
+		temporaryValue = array[currentIndex];
+		array[currentIndex] = array[randomIndex];
+		array[randomIndex] = temporaryValue;
+	}
+	return array;
+};
+
 const heights = [50,150,250,350,450,550,640].shuffle();
 
 const tc = new CharacterObject(300, 200, ctx);
