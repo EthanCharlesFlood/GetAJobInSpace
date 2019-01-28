@@ -31,7 +31,7 @@ class Collectable extends GameObject {
   }
 
   reset() {
-    let heights = [50,150,250,350,450];
+    let heights = [65,165,265,365,465];
     this.collected = false;
     this.x = 1000;
     this.y = heights[Math.floor(Math.random * 5)];
