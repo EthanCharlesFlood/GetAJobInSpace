@@ -76,6 +76,7 @@ const resetGame = () => {
   o5.reset();
   o6.reset();
   o7.reset();
+  clctb.reset();
 };
 
 
@@ -157,25 +158,68 @@ const draw = () => {
     } else {
       bg.draw();
       tc.draw();
-      o1.draw();
-      o2.draw();
-      o3.draw();
-      o4.draw();
-      o5.draw();
-      o6.draw();
-      e1.draw();
       clctb.draw();
+      tc.checkCollision(clctb);
+      if (tc.collected < 3) {
+        o1.draw();
+        o2.draw();
+        tc.checkCollision(o1);
+        tc.checkCollision(o2);
+      } else if (tc.collected < 6) {
+        o1.draw();
+        o2.draw();
+        o3.draw();
+        o4.draw();
+        tc.checkCollision(o1);
+        tc.checkCollision(o2);
+        tc.checkCollision(o3);
+        tc.checkCollision(o4);
+      } else if (tc.collected < 9) {
+        o1.draw();
+        o2.draw();
+        o3.draw();
+        o4.draw();
+        o5.draw();
+        o6.draw();
+        tc.checkCollision(o1);
+        tc.checkCollision(o2);
+        tc.checkCollision(o3);
+        tc.checkCollision(o4);
+        tc.checkCollision(o5);
+        tc.checkCollision(o6);
+      } else if (tc.collected < 12) {
+        o1.draw();
+        o2.draw();
+        o3.draw();
+        o4.draw();
+        o5.draw();
+        o6.draw();
+        e1.draw();
+        tc.checkCollision(o1);
+        tc.checkCollision(o2);
+        tc.checkCollision(o3);
+        tc.checkCollision(o4);
+        tc.checkCollision(o5);
+        tc.checkCollision(o6);
+        tc.checkCollision(e1);
+      } else {
+        o1.draw();
+        o2.draw();
+        o3.draw();
+        o4.draw();
+        o5.draw();
+        o6.draw();
+        e1.draw();
+        tc.checkCollision(o1);
+        tc.checkCollision(o2);
+        tc.checkCollision(o3);
+        tc.checkCollision(o4);
+        tc.checkCollision(o5);
+        tc.checkCollision(o6);
+        tc.checkCollision(e1);
+      }
       jp.updateJobPoints();
       jp.draw();
-      tc.checkCollision(e1);
-      tc.checkCollision(o1);
-      tc.checkCollision(o2);
-      tc.checkCollision(o3);
-      tc.checkCollision(o4);
-      tc.checkCollision(o5);
-      tc.checkCollision(o6);
-      tc.checkCollision(o7);
-      tc.checkCollision(clctb);
     }
   }
 };

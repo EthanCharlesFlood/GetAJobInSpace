@@ -12,7 +12,8 @@ class JobPoints {
   }
 
   didGetAJob() {
-    if (this.character.dead && this.jobPoints > 5000 && this.character.collected === 10) {
+    let threshold = (Math.random() * 5) + 15;
+    if (this.character.collected > 1) {
       return true;
     } else {
       return false;
@@ -25,12 +26,12 @@ class JobPoints {
     if (!dead) {
       this.jobPoints += 1;
     }
-    this.jobPointDisplay = `Years Spent Searching for a Job: ${this.jobPoints}`;
+    this.jobPointDisplay = `Job Points: ${this.jobPoints}`;
   }
 
   resetJobPoints() {
     this.jobPoints = 0;
-    this.JobPointDisplay = `Years Spent Searching for a Job: ${this.jobPoints}`;
+    this.JobPointDisplay = `Job Points: ${this.jobPoints}`;
   }
 
   draw() {

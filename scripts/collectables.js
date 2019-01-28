@@ -73,6 +73,7 @@ class Collectable extends GameObject {
     } else {
       this.collected = false;
       this.count = 0;
+      this.pc.collected++;
       this.x = 1500;
       this.y = 100 + (Math.random() * 500);
     }

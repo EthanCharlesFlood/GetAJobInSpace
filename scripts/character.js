@@ -70,7 +70,6 @@ class CharacterObject extends GameObject {
         object.harmful === false
       ) {
         object.collected = true;
-        this.collected++;
       }
     }
   }
@@ -98,6 +97,7 @@ class CharacterObject extends GameObject {
   }
 
   draw() {
+    console.log(this.collected);
     if (this.dead) {
       this.drawExplosion();
     } else {
