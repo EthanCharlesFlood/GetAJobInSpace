@@ -1,8 +1,8 @@
 import GameObject from "./object.js";
 
 export class EnemyObject extends GameObject {
-  constructor(canvasWidth, canvasHeight, ctx) {
-    super(pc,canvasWidth, canvasHeight);
+  constructor(pc,canvasWidth, canvasHeight, ctx) {
+    super(canvasWidth, canvasHeight);
     this.draw = this.draw.bind(this);
     this.context = ctx;
     this.y = Math.floor(Math.random() * 200) + 300;

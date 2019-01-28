@@ -1,8 +1,8 @@
 import GameObject from './object.js';
 
 class Collectable extends GameObject {
-  constructor(canvasWidth, canvasHeight, ctx) {
-    super(pc,canvasWidth, canvasHeight);
+  constructor(pc,canvasWidth, canvasHeight, ctx) {
+    super(canvasWidth, canvasHeight);
     this.context = ctx;
     this.collected = false;
     this.dx = 10;
@@ -83,7 +83,7 @@ class Collectable extends GameObject {
       this.x = 1500;
       this.y = 100 + (Math.random() * 500);
     }
-    if (this.collected === true) {
+    if (this.collected === true && !(this.pc.dead)) {
       this.drawCollection();
     }  else if (this.collected === false) {
       this.x -= 10;

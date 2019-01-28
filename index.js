@@ -43,9 +43,9 @@ const shuffle = function (array) {
 	return array;
 };
 
-const heights = [50,150,250,350,450,550,640].shuffle();
+const heights = shuffle([50,150,250,350,450,550,640]);
 
-const tc = new CharacterObject(300, 200, ctx);
+const tc = new CharacterObject(150, 200, ctx);
 const bg = new BackgroundObject(0,0, ctx);
 const e1 = new EnemyObject(tc,1250, 0, ctx);
 const o1 = new Obstacle(tc,1000, heights[0], ctx);
@@ -157,13 +157,13 @@ const draw = () => {
     } else {
       bg.draw();
       tc.draw();
-      e1.draw();
       o1.draw();
       o2.draw();
       o3.draw();
       o4.draw();
       o5.draw();
       o6.draw();
+      e1.draw();
       clctb.draw();
       jp.updateJobPoints();
       jp.draw();

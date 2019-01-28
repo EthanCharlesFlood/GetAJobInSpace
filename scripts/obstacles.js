@@ -1,8 +1,8 @@
 import GameObject from './object.js';
 
 class Obstacle extends GameObject {
-  constructor(canvasWidth, canvasHeight, ctx) {
-    super(pc,canvasWidth, canvasHeight);
+  constructor(pc,canvasWidth, canvasHeight, ctx) {
+    super(canvasWidth, canvasHeight);
     this.context = ctx;
     this.obstacleWords = [
                         ["REJECTED", 50],

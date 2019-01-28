@@ -35,7 +35,7 @@ class Menu {
     this.context.fillStyle = "#FFFFFF";
     this.context.closePath();
     this.context.beginPath();
-    this.context.fillText("PLAY", 450, 500);
+    this.context.fillText("PLAY", 450, 400);
     this.context.fillStyle = "#FFFFFF";
     this.context.closePath();
   }
