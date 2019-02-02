@@ -21,7 +21,7 @@ const ctx = canvas.getContext("2d");
 ctx.font = "30px Comic Sans MS";
 ctx.fillStyle = "white";
 
-
+let paused = false;
 let upPressed = false;
 let downPressed = false;
 let leftPressed = false;
