@@ -28,6 +28,7 @@ let leftPressed = false;
 let rightPressed = false;
 let spacePressed = false;
 let gameRunning = false;
+let musicPlaying = true;
 
 const shuffle = function (array) {
 	let currentIndex = array.length;
