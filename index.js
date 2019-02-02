@@ -151,11 +151,11 @@ const draw = () => {
     // bg.draw();
     // tutorial.draw();
     // tc.draw();
-    if (gameStart < 1) {
+    if (gameStart < 1 && !(paused)) {
       bg.draw();
       menu.draw();
       tc.draw();
-    } else {
+    } else if (!puased) {
       bg.draw();
       tc.draw();
       clctb.draw();
