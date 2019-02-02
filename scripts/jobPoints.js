@@ -13,11 +13,7 @@ class JobPoints {
 
   didGetAJob() {
     let threshold = (Math.random() * 5) + 15;
-    if (this.character.collected > threshold) {
-      return true;
-    } else {
-      return false;
-    }
+    return this.character.collected > threshold;
   }
 
 
@@ -47,7 +43,7 @@ class JobPoints {
       // this.context.fillText(this.jobPointDisplay, 25, 25);
       // this.context.fillStyle = "#FFFFFF";
       // this.context.closePath();
-      if (this.didGetAJob() === false) {
+      if (!(this.didGetAJob())) {
         this.context.beginPath();
         this.context.fillText("YOU DID NOT GET A JOB IN SPACE", 250, 300);
         this.context.fillStyle = "#FFFFFF";
