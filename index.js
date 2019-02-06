@@ -61,9 +61,8 @@ const jp = new JobPoints(tc, ctx);
 const Obstacles = [o1,o2,o3,o4,o5,o6,o7];
 
 const menu = new Menu(ctx);
-// const hsf = new HighScoreForm(jp);
+const hsf = new HighScoreForm(jp);
 const clctb = new Collectable(tc,1000,300,ctx);
-// const tutorial = new Tutorial(ctx,e1,clctb);
 
 const resetGame = () => {
   gameStart = 0;
@@ -84,14 +83,8 @@ const resetGame = () => {
 const keyDownHandler = (e) => {
   if (e.keyCode === 40) {
     tc.upPressed = true;
-    // if (tutorial.done === false) {
-    //   tutorial.upPressed = true;
-    // }
   } else if (e.keyCode === 38) {
     tc.downPressed = true;
-    // if (tutorial.done === false) {
-    //   tutorial.downPressed = true;
-    // }
   } else if (e.keyCode === 32) {
     spacePressed = true;
     if (gameStart < 1) {
@@ -101,38 +94,20 @@ const keyDownHandler = (e) => {
     }
   } else if (e.keyCode === 39) {
     tc.rightPressed = true;
-    // if (tutorial.done === false) {
-    //   tutorial.rightPressed = true;
-    // }
   } else if (e.keyCode === 37) {
     tc.leftPressed = true;
-    // if (tutorial.done === false) {
-    //   tutorial.leftPressed = true;
-    // }
   }
 };
 
 const keyUpHandler = (e) => {
   if (e.keyCode === 40) {
     tc.upPressed = false;
-    // if (tutorial.done === false) {
-    //   tutorial.upPressed = false;
-    // }
   } else if (e.keyCode === 38) {
     tc.downPressed = false;
-    // if (tutorial.done === false) {
-    //   tutorial.downPressed = false;
-    // }
   } else if (e.keyCode === 39) {
     tc.rightPressed = false;
-    // if (tutorial.done === false) {
-    //   tutorial.rightPressed = false;
-    // }
   } else if (e.keyCode === 37) {
     tc.leftPressed = false;
-    // if (tutorial.done === false) {
-    //   tutorial.leftPressed = false;
-    // }
   } else if (e.keyCode === 32) {
     spacePressed = false;
   }
@@ -149,9 +124,6 @@ const draw = () => {
 
   if (delta > interval) {
     then = now - (delta % interval);
-    // bg.draw();
-    // tutorial.draw();
-    // tc.draw();
     if (gameStart < 1 && !(paused)) {
       bg.draw();
       menu.draw();
