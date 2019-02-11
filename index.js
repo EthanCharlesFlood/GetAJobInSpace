@@ -124,11 +124,12 @@ const draw = () => {
 
   if (delta > interval) {
     then = now - (delta % interval);
-    if (gameStart < 1 && !(paused)) {
+    if (gameStart < 1) {
       bg.draw();
       menu.draw();
       tc.draw();
-    } else if (!puased) {
+			jp.draw();
+    } else {
       bg.draw();
       tc.draw();
       clctb.draw();
