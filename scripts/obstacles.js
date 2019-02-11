@@ -4,6 +4,7 @@ class Obstacle extends GameObject {
   constructor(pc,canvasWidth, canvasHeight, ctx) {
     super(canvasWidth, canvasHeight);
     this.context = ctx;
+    this.paused = false;
     this.obstacleWords = [
                         ["REJECTED", 50],
                         ["HIRING FREEZE", 160],

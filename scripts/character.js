@@ -8,6 +8,7 @@ class CharacterObject extends GameObject {
     this.width = 35;
     this.height = 50;
     this.dead = false;
+    this.paused = false;
     this.count = 0;
     this.collected = 0;
     this.upPressed = false;

@@ -4,6 +4,7 @@ class JobPoints {
     this.collected = 0;
     this.character = character;
     this.context = context;
+    this.paused = false;
     this.scores = $("#space-scores > li");
     this.updateJobPoints = this.updateJobPoints.bind(this);
     this.resetJobPoints = this.resetJobPoints.bind(this);
