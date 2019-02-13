@@ -50,14 +50,14 @@ const heights = shuffle([50,150,250,350,450,550,640]);
 
 const bg = new BackgroundObject(0,0, ctx);
 const tc = new CharacterObject(150, 200, ctx);
-const e1 = new EnemyObject(tc,1250, 0, ctx);
-const o1 = new Obstacle(tc,1000, heights[0], ctx);
-const o2 = new Obstacle(tc,1000, heights[1], ctx);
-const o3 = new Obstacle(tc,1000, heights[2], ctx);
-const o4 = new Obstacle(tc,1000, heights[3], ctx);
-const o5 = new Obstacle(tc,1000, heights[4], ctx);
-const o6 = new Obstacle(tc,1000, heights[5], ctx);
-const o7 = new Obstacle(tc,1000, heights[6], ctx);
+const e1 = new EnemyObject(1250, 0, ctx);
+const o1 = new Obstacle(1000, heights[0], ctx);
+const o2 = new Obstacle(1000, heights[1], ctx);
+const o3 = new Obstacle(1000, heights[2], ctx);
+const o4 = new Obstacle(1000, heights[3], ctx);
+const o5 = new Obstacle(1000, heights[4], ctx);
+const o6 = new Obstacle(1000, heights[5], ctx);
+const o7 = new Obstacle(1000, heights[6], ctx);
 const jp = new JobPoints(tc, ctx);
 const ps = new PauseScreen(ctx);
 const menu = new Menu(ctx);
@@ -195,12 +195,13 @@ const draw = () => {
 			ctx.fillStyle = "white";
       menu.draw();
     } else if (tutorial) {
+			if (tt.done) {
+				tutorial = false;
+				tt.done = false;
+			}
 			bg.draw();
 			tt.draw();
 			tc.draw();
-			tc.checkCollision(tto);
-			tc.checkCollision(tte);
-			tc.checkCollision(ttclctb);
 		} else if (paused  && gameStart == 1) {
 			ps.draw();
 		} else {

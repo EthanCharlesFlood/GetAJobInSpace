@@ -122,6 +122,7 @@ class CharacterObject extends GameObject {
     this.dead = false;
     this.explosionDone = false;
     this.count = 0;
+    this.collected = 0;
   }
 
   draw() {
