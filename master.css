@@ -35,17 +35,7 @@ span {
 .controls {
   border-style: inset;
   padding: 5px;
-  margin-bottom: 40px;
-}
-
-.dev-info-scores {
-  text-decoration: none;
-  position: fixed;
-  right: 200px;
-  top:300px;
-  display: flex;
-  flex-direction: column;
-  width: 150px;
+  margin-bottom: 10px;
 }
 
 .dev-info {
@@ -70,11 +60,37 @@ span {
 
 .controls {
   display: flex;
-  flex-wrap: wrap;
-  flex direction: column;
-  align-items: center;
   background-color: black;
   border: 5px solid black;
+}
+
+.arrows-keys {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.interviews {
+  margin-right: 20px;
+}
+.mute-pause {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.collect-img {
+  width: 42px;
+  height: 35px;
+}
+
+.applications {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 20px;
 }
 
 .controls span {

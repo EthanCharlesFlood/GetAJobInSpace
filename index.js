@@ -28,7 +28,6 @@ let leftPressed = false;
 let rightPressed = false;
 let spacePressed = false;
 let gameRunning = false;
-let musicPlaying = true;
 
 const shuffle = function (array) {
 	let currentIndex = array.length;
@@ -87,9 +86,11 @@ const keyDownHandler = (e) => {
     tc.downPressed = true;
   } else if (e.keyCode === 32) {
     spacePressed = true;
-    if (gameStart < 1) {
+    if (gameStart < 1 && menu.selector == 1) {
       gameStart = 1;
-    } else if (gameStart > 0 && tc.dead) {
+    } else if (gameStart < 1 && menu.selector == 0) {
+			menu.drawTutorial();
+		} else if (gameStart > 0 && tc.dead) {
         resetGame();
     }
   } else if (e.keyCode === 39) {
@@ -102,14 +103,19 @@ const keyDownHandler = (e) => {
 const keyUpHandler = (e) => {
   if (e.keyCode === 40) {
     tc.upPressed = false;
+		menu.up();
   } else if (e.keyCode === 38) {
     tc.downPressed = false;
+		menu.down();
   } else if (e.keyCode === 39) {
     tc.rightPressed = false;
   } else if (e.keyCode === 37) {
     tc.leftPressed = false;
   } else if (e.keyCode === 32) {
     spacePressed = false;
+		if (gameStart < 1 && menu.selector == 0) {
+			tc.startMusic();
+		}
   }
 };
 
@@ -125,11 +131,14 @@ const draw = () => {
   if (delta > interval) {
     then = now - (delta % interval);
     if (gameStart < 1) {
-      bg.draw();
+			ctx.fillStyle = "black";
+			ctx.fillRect(0,0,ctx.canvas.width,ctx.canvas.height);
+			ctx.fillStyle = "white";
       menu.draw();
-      tc.draw();
+    } else if (paused) {
+			ps.draw();
+		} else {
 			jp.draw();
-    } else {
       bg.draw();
       tc.draw();
       clctb.draw();

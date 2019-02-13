@@ -5,7 +5,6 @@ class CharacterObject extends GameObject {
     super(canvasWidth, canvasHeight);
     this.draw = this.draw.bind(this);
     this.context = ctx;
-    this.paused = false;
     this.width = 35;
     this.height = 50;
     this.dead = false;
@@ -25,16 +24,39 @@ class CharacterObject extends GameObject {
     this.explosionImage.src = "assets/exp2_0.png";
     this.explodeNoise = this.explodeNoise.bind(this);
     this.gameMusic = new Audio();
-    this.gameMusic.src = null;
+    this.gameMusic.src = "assets/8bit havoc.mp3";
+    this.startMusic = this.startMusic.bind(this);
+    this.startMusic = this.stopMusic.bind(this);
     this.checkCollision = this.checkCollision.bind(this);
     this.drawExplosion = this.drawExplosion.bind(this);
+    this.mute = this.mute.bind(this);
+    this.unmute = this.unMute.bind(this);
     this.reset = this.reset.bind(this);
   }
 
 
+  startMusic() {
+    this.gameMusic.currentTime = 0;
+    this.gameMusic.play();
+  }
+
+  stopMusic() {
+    this.gameMusic.pause();
+  }
+
+  mute() {
+    this.explosionSound.volume = 0;
+    this.gameMusic.volume = 0;
+  }
+
+  unMute() {
+    this.explosionSound.volume = 5;
+    this.gameMusic.volume = 5;
+  }
 
   drawExplosion() {
     if (this.count === 0) {
+      this.stopMusic();
       this.explodeNoise();
       this.count += 1;
     } else if (this.count < 30) {

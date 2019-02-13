@@ -5,7 +5,7 @@ class JobPoints {
     this.character = character;
     this.context = context;
     this.paused = false;
-    this.scores = $("#space-scores > li");
+    this.jobPointDisplay = `Job Points: ${this.jobPoints}`;
     this.updateJobPoints = this.updateJobPoints.bind(this);
     this.resetJobPoints = this.resetJobPoints.bind(this);
     this.draw = this.draw.bind(this);
@@ -34,16 +34,16 @@ class JobPoints {
   draw() {
     const dead = this.character.dead;
     if (!dead) {
-      // this.context.beginPath();
-      // this.context.fillText(this.jobPointDisplay, 25, 25);
-      // this.context.fillStyle = "#FFFFFF";
-      // this.context.closePath();
+      this.updateJobPoints();
+      this.context.beginPath();
+      this.context.fillText(this.jobPointDisplay, 25, 25);
+      this.context.fillStyle = "#FFFFFF";
+      this.context.closePath();
     } else {
-      // this.didGetAJob();
-      // this.context.beginPath();
-      // this.context.fillText(this.jobPointDisplay, 25, 25);
-      // this.context.fillStyle = "#FFFFFF";
-      // this.context.closePath();
+      this.context.beginPath();
+      this.context.fillText(this.jobPointDisplay, 25, 25);
+      this.context.fillStyle = "#FFFFFF";
+      this.context.closePath();
       if (!(this.didGetAJob())) {
         this.context.beginPath();
         this.context.fillText("YOU DID NOT GET A JOB IN SPACE", 250, 300);
