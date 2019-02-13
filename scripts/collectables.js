@@ -15,10 +15,13 @@ class Collectable extends GameObject {
     this.collectionImage = new Image();
     this.collectionImage.src = "assets/imageedit_1_3881340611.png";
     this.collectionNoise = new Audio();
+    this.collectionNoise.volume = 0.5;
     this.collectionNoise.src = "assets/131660__bertrof__game-sound-correct.wav";
     this.drawCollection = this.drawCollection.bind(this);
     this.playCollectionNoise = this.playCollectionNoise.bind(this);
     this.reset = this.reset.bind(this);
+    this.mute = this.mute.bind(this);
+    this.unmute = this.unMute.bind(this);
   }
 
   hitbox() {
@@ -35,6 +38,14 @@ class Collectable extends GameObject {
     this.collected = false;
     this.x = 1000;
     this.y = heights[Math.floor(Math.random * 5)];
+  }
+
+  mute() {
+    this.collectionNoise.volume = 0;
+  }
+
+  unMute() {
+    this.collectionNoise.volume = 0.5;
   }
 
   playCollectionNoise() {

@@ -1,7 +1,7 @@
 import GameObject from "./object.js";
 
 export class EnemyObject extends GameObject {
-  constructor(pc,canvasWidth, canvasHeight, ctx) {
+  constructor(canvasWidth, canvasHeight, ctx) {
     super(canvasWidth, canvasHeight);
     this.draw = this.draw.bind(this);
     this.context = ctx;
@@ -9,7 +9,6 @@ export class EnemyObject extends GameObject {
     this.dx = 5;
     this.width = 120;
     this.height = 140;
-    this.pc = pc;
     this.enemy = new Image();
     this.enemy.src = "assets/153262875432218109 (1).png";
     this.harmful = true;
@@ -52,7 +51,7 @@ export class EnemyObject extends GameObject {
 }
 
 export class EnemyObject2 extends GameObject {
-  constructor(pc,canvasWidth, canvasHeight, ctx) {
+  constructor(canvasWidth, canvasHeight, ctx) {
     super(canvasWidth, canvasHeight);
     this.context = ctx;
     this.y = Math.floor(Math.random() * 200) + 300;

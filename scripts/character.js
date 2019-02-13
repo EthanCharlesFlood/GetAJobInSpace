@@ -17,6 +17,7 @@ class CharacterObject extends GameObject {
     this.spacePressed = false;
     this.explosionSound = new Audio();
     this.explosionSound.src = "assets/explosion.mp3";
+    this.explosionDone = false;
     this.character = new Image();
     this.character.src = "assets/3DS - Regular Show Mordecai and Rigby in 8-Bit Land - Garrett Bobby Ferguson Jr Suit.png";
     this.explosionImage = new Image();
@@ -25,14 +26,13 @@ class CharacterObject extends GameObject {
     this.gameMusic = new Audio();
     this.gameMusic.src = "assets/8bit havoc.mp3";
     this.startMusic = this.startMusic.bind(this);
-    this.startMusic = this.stopMusic.bind(this);
+    this.stopMusic = this.stopMusic.bind(this);
     this.checkCollision = this.checkCollision.bind(this);
     this.drawExplosion = this.drawExplosion.bind(this);
     this.mute = this.mute.bind(this);
     this.unmute = this.unMute.bind(this);
     this.reset = this.reset.bind(this);
   }
-
 
   startMusic() {
     this.gameMusic.currentTime = 0;
@@ -49,8 +49,8 @@ class CharacterObject extends GameObject {
   }
 
   unMute() {
-    this.explosionSound.volume = 5;
-    this.gameMusic.volume = 5;
+    this.explosionSound.volume = 0.5;
+    this.gameMusic.volume = 0.5;
   }
 
   drawExplosion() {
@@ -71,6 +71,7 @@ class CharacterObject extends GameObject {
       this.context.drawImage(this.explosionImage,0,195,65,65,this.x,this.y,65,65);
       this.count += 1;
     } else {
+      this.explosionDone = true;
       return null;
     }
   }
@@ -119,6 +120,7 @@ class CharacterObject extends GameObject {
     this.x = 50;
     this.y = 50;
     this.dead = false;
+    this.explosionDone = false;
     this.count = 0;
   }
 
