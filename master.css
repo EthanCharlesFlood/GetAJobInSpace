@@ -1,17 +1,18 @@
 body {
-  /* height: 100vh; */
-  /* width: 100%; */
-  background-color: black;
+  background-image: url(assets/high-resolution-wallpaper-space_334572.jpg);
   font-family: sans-serif;
   color: white;
 }
 
 span {
-  /* position: fixed;
-  left: 43%;
-  top: 100px; */
   font-size: 25px;
   font-weight: 900;
+}
+
+.red-text {
+  font-size: 30px;
+  font-weight: 900;
+  color: red;
 }
 
 .main-container {
@@ -21,9 +22,6 @@ span {
 }
 
 .game-info-controls {
-  /* position: fixed;
-  left: 200px;
-  top: 300px; */
   display: flex;
   flex-direction: column;
   width: 150px;
@@ -51,40 +49,34 @@ span {
 }
 
 .dev-info {
-  /* position: fixed;
-  left: 44%;
-  top: 90%; */
   text-decoration: none;
   border-style: inset;
   padding: 5px;
   margin-bottom: 10px;
-  margin-top: 10px;
-}
-
-.scores {
-  border-style: inset;
-  padding: 5px;
-  margin-bottom: 40px;
+  background-color: black;
+  border: 5px solid black;
 }
 
 .game-canvas {
-  /* position: fixed;
-  left: 22%;
-  top: 20%; */
   background-color: #fff;
-  border: 5px solid white;
+  border: 5px solid black;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .input-name > input {
   width: 100px;
 }
 
-button {
-  height: 15px;
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  flex direction: column;
+  align-items: center;
+  background-color: black;
+  border: 5px solid black;
 }
 
-audio {
-  position: fixed;
-  left: 41%;
-  top: 85%;
+.controls span {
+  font-size: 15px;
 }

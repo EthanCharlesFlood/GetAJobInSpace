@@ -5,6 +5,7 @@ class CharacterObject extends GameObject {
     super(canvasWidth, canvasHeight);
     this.draw = this.draw.bind(this);
     this.context = ctx;
+    this.paused = false;
     this.width = 35;
     this.height = 50;
     this.dead = false;
@@ -23,8 +24,11 @@ class CharacterObject extends GameObject {
     this.explosionImage = new Image();
     this.explosionImage.src = "assets/exp2_0.png";
     this.explodeNoise = this.explodeNoise.bind(this);
+    this.gameMusic = new Audio();
+    this.gameMusic.src = null;
     this.checkCollision = this.checkCollision.bind(this);
     this.drawExplosion = this.drawExplosion.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
 
