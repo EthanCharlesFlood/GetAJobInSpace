@@ -4,7 +4,6 @@ class Collectable extends GameObject {
   constructor(pc,canvasWidth, canvasHeight, ctx) {
     super(canvasWidth, canvasHeight);
     this.context = ctx;
-    this.paused = false;
     this.collected = false;
     this.dx = 10;
     this.count = 0;

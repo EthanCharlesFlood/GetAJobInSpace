@@ -81,6 +81,10 @@ span {
   margin-top: 15px;
 }
 
+.mute-pause i {
+  cursor: pointer;
+}
+
 .collect-img {
   width: 42px;
   height: 35px;

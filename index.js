@@ -22,6 +22,7 @@ ctx.font = "30px Comic Sans MS";
 ctx.fillStyle = "white";
 
 let paused = false;
+let muted = false;
 let upPressed = false;
 let downPressed = false;
 let leftPressed = false;
@@ -56,12 +57,35 @@ const o5 = new Obstacle(tc,1000, heights[4], ctx);
 const o6 = new Obstacle(tc,1000, heights[5], ctx);
 const o7 = new Obstacle(tc,1000, heights[6], ctx);
 const jp = new JobPoints(tc, ctx);
-
-const Obstacles = [o1,o2,o3,o4,o5,o6,o7];
-
 const menu = new Menu(ctx);
 const hsf = new HighScoreForm(jp);
 const clctb = new Collectable(tc,1000,300,ctx);
+
+const muteButton = document.getElementById("volume-up-down");
+const pauseButton = document.getElementById("pause-play");
+
+const mutePlay = () => {
+	if (muted) {
+		tc.unMute();
+		clctb.unMute();
+	} else {
+		tc.mute();
+		clctb.mute();
+	}
+};
+
+const pausePlay = () => {
+	if (paused) {
+		pauseButton.value = '<i class="fas fa-play"></i>';
+		paused = false;
+	} else {
+		pauseButton.value = '<i id="volume-up-down" class="fas fa-pause"></i>';
+		paused = true;
+	}
+};
+
+const Obstacles = [o1,o2,o3,o4,o5,o6,o7];
+
 
 const resetGame = () => {
   gameStart = 0;

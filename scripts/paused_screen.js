@@ -1,5 +1,8 @@
 class PausedScreen {
-
+  constructor(context) {
+    this.context = context;
+    this.draw = this.draw.bind(this);
+  }
 
   draw() {
     this.context.beginPath();
@@ -12,3 +15,5 @@ class PausedScreen {
     this.context.closePath();
   }
 }
+
+export default PausedScreen;

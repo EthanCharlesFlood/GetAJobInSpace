@@ -5,7 +5,6 @@ export class EnemyObject extends GameObject {
     super(canvasWidth, canvasHeight);
     this.draw = this.draw.bind(this);
     this.context = ctx;
-    this.paused = false;
     this.y = Math.floor(Math.random() * 200) + 300;
     this.dx = 5;
     this.width = 120;
