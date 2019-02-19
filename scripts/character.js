@@ -106,6 +106,10 @@ class CharacterObject extends GameObject {
     this.explosionSound.play();
   }
 
+  attack() {
+    
+  }
+
 
   hitbox() {
     return {
