@@ -48,6 +48,30 @@ class KeyHandler {
   }
 
   keyUpHandler() {
-
+    if (e.keyCode === 40) {
+      this.tc.upPressed = false;
+      if (this.tutorial) {
+        this.tt.upPressed = false;
+      }
+      menu.up();
+    } else if (e.keyCode === 38) {
+      this.tc.downPressed = false;
+      if (this.tutorial) {
+        this.tt.downPressed = false;
+      }
+      this.menu.down();
+    } else if (e.keyCode === 39) {
+      this.tc.rightPressed = false;
+      if (this.tutorial) {
+        this.tt.rightPressed = false;
+      }
+    } else if (e.keyCode === 37) {
+      this.tc.leftPressed = false;
+      if (this.tutorial) {
+        this.tt.leftPressed = false;
+      }
+    } else if (e.keyCode === 32) {
+      this.spacePressed = false;
+    }
   }
 }
