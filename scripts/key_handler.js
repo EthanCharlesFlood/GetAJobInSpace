@@ -1,4 +1,4 @@
-class KeyHandler {
+export class KeyHandler {
   constructor(e, menu, tutorial, character) {
     this.upPressed = false;
     this.downPressed = false;
