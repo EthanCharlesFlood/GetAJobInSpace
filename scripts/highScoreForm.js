@@ -8,17 +8,9 @@ class HighScoreForm {
     this.alphabetSelector = 0;
   }
 
-  onHighScore(num) {
-    $("form").show();
-  }
 
-  onSubmit() {
-    let val = $("input").val();
-    let id = this.jp.didGetAJob();
-    console.log(val);
-    $("#" + id).text(val);
-    $("form").hide();
-  }
+
+
 
 }
 
