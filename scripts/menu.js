@@ -24,6 +24,14 @@ class Menu {
     }
   }
 
+  hover() {
+    if (true) {
+      this.selector = 1;
+    } else if (false) {
+      this.selector = 0;
+    }
+  }
+
   draw() {
     if (this.pressed) {
       this.down();
