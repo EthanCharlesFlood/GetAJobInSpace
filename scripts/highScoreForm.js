@@ -8,7 +8,13 @@ class HighScoreForm {
     this.alphabetSelector = 0;
   }
 
+  up() {
+    this.alphabetSelector += 1;
+  }
 
+  down() {
+    this.alphabetSelector -= 1;
+  }
 
 
 
