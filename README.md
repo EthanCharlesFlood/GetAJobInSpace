@@ -2,17 +2,13 @@
 
   Do you want a job? How about a job in space? This endless runner utilizes jQuery, Canvas, HTML5, and JavaScript
   to create opportunities for you to avoid the pitfalls of the job hunt and if you are lucky enough get a job in space.
-![gajis](assets/GAJIS.png)
-
-## WireFrames
-
-![wireframe](https://github.com/EthanCharlesFlood/GetAJobInSpace/blob/master/assets/JavaScript%20Game%20Wireframe.png)
+![gajis](assets/gjs.png)
 
 ## Architecture & Technologies
 
 The game is divided into several classes for clean implementation via OOP practices. I utilized an object superclass and inheritance to create obstacle, enemy, and character classes representing the objects in the game.  There is a background class which renders the infinitely scrolling starscape, and a score and highscore class which implement scoring and the high score functionality.
 
-```
+```javascript
 class GameObject {
   constructor(x, y, ctx) {
     this.x = x;
@@ -32,7 +28,7 @@ export default GameObject;
 
 Objects are rendered onto the canvas via spritesheets, clipping the sheets at different coordinates to render animations for the objects in the game. These spritesheets are utilized with the requestAnimationFrame shim to render a stable and smooth experience with different animations for different events in the game.
 
-```
+```javascript
 drawExplosion() {
   if (this.count === 0) {
     this.explodeNoise();
@@ -57,7 +53,7 @@ drawExplosion() {
 
  Hit detection between these objects is implemented via a bounding box algorithm. Objects maintain references to their coordinates on the canvas in order to be drawable, so these coordinates are used to represent hitboxes. These hitboxes are checked for collision on a set interval as the game is animated using the requestAnimationFrame shim.
 
-```
+```javascript
 checkCollision(object) {
   const playerHitbox = this.hitbox();
   const objectHitbox = object.hitbox();
