@@ -178,6 +178,18 @@ const keyUpHandler = (e) => {
   }
 };
 
+canvas.addEventListener('click', e => {
+	const position = {
+		x: e.clientX,
+		y: e.clientY
+	};
+
+	if (true && gameStart < 1) {
+		gamestart = 1;
+	} else if (false && gameStart < 1) {
+		tutorial = true;
+	}
+});
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
