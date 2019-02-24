@@ -8,6 +8,8 @@ import { EnemyObject, EnemyObject2 } from "./scripts/enemies.js";
 import Collectable from "./scripts/collectables.js";
 import Tutorial from "./scripts/tutorial.js";
 import PauseScreen from "./scripts/paused_screen";
+import Firebase from 'firebase/app';
+import FirebaseDatabase from 'firebase/database';
 
 
 
@@ -17,6 +19,7 @@ let then = Date.now();
 let fps = 60;
 let interval = 1000/fps;
 let gameStart = 0;
+let database = Firebase.database();
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 ctx.font = "30px Comic Sans MS";
