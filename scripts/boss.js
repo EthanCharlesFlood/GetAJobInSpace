@@ -9,11 +9,16 @@ export class Boss extends GameObject {
   }
 
   attack() {
-    
+
   }
 
   hitbox() {
-
+    return {
+      x1: this.x + 5,
+      x2: this.x + 25,
+      y1: this.y + 5,
+      y2: this.y + 40
+    };
   }
 
   draw() {
