@@ -20,6 +20,18 @@ class Menu {
     };
   }
 
+  isPlay(position) {
+    return (
+
+    );
+  }
+
+  isTutorial(position) {
+    return (
+
+    );
+  }
+
   up() {
     if (this.selector === 0) {
       this.selector = 1;

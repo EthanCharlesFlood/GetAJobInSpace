@@ -184,9 +184,9 @@ canvas.addEventListener('click', e => {
 		y: e.clientY
 	};
 
-	if (true && gameStart < 1) {
+	if (menu.isPlay(position) && gameStart < 1) {
 		gamestart = 1;
-	} else if (false && gameStart < 1) {
+	} else if (menu.isTutorial(position) && gameStart < 1) {
 		tutorial = true;
 	}
 });
