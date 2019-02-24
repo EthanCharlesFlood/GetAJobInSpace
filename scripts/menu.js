@@ -6,6 +6,18 @@ class Menu {
     this.pressed = false;
     this.up = this.up.bind(this);
     this.down = this.down.bind(this);
+    this.playHitbox = {
+      x1: 465,
+      x2: 500,
+      y1: 350,
+      y2: 370
+    };
+    this.tutorialHitbox = {
+      x1: 443,
+      x2: 473,
+      y1: 440,
+      y2: 460
+    };
   }
 
   up() {

@@ -9,7 +9,7 @@ export class Boss extends GameObject {
   }
 
   attack() {
-
+    
   }
 
   hitbox() {
