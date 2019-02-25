@@ -29,7 +29,6 @@ let fps = 60;
 let interval = 1000/fps;
 let gameStart = 0;
 let database = firebase.database();
-database.ref('highScores').once('value').then(v => console.log(v.highScores));
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 ctx.font = "30px Comic Sans MS";
@@ -71,14 +70,14 @@ const o4 = new Obstacle(1000, heights[3], ctx);
 const o5 = new Obstacle(1000, heights[4], ctx);
 const o6 = new Obstacle(1000, heights[5], ctx);
 const o7 = new Obstacle(1000, heights[6], ctx);
-const jp = new JobPoints(tc, ctx);
+const hsf = new HighScoreForm(database);
+const jp = new JobPoints(tc, ctx, hsf);
 const ps = new PauseScreen(ctx);
 const menu = new Menu(ctx);
 const tte = new EnemyObject(1250, 0, ctx);
 const tto = new Obstacle(1000, 250, ctx);
 const ttclctb = new Collectable(tc, 1000, 500, ctx);
 const tt = new Tutorial(ctx, tc, tte, tto, ttclctb);
-const hsf = new HighScoreForm(jp);
 const clctb = new Collectable(tc,1000,300,ctx);
 
 
@@ -192,6 +191,7 @@ const keyUpHandler = (e) => {
 };
 
 canvas.onmousemove = (e) => {
+	console.log(hsf.scores);
 	var x = e.clientX;
   var y = e.clientY;
 	if (gameStart < 1) {

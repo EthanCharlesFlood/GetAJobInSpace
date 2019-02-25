@@ -1,21 +1,16 @@
 class JobPoints {
-  constructor(character, context) {
+  constructor(character, context, highScoreForm) {
     this.jobPoints = 0;
     this.collected = 0;
     this.character = character;
     this.context = context;
+    this.highScoreForm = highScoreForm;
     this.jobPointDisplay = `Job Points: ${this.jobPoints}`;
     this.updateJobPoints = this.updateJobPoints.bind(this);
     this.resetJobPoints = this.resetJobPoints.bind(this);
     this.draw = this.draw.bind(this);
     this.didGetAJob = this.didGetAJob.bind(this);
   }
-
-  didGetAJob() {
-    let threshold = (Math.random() * 5) + 15;
-    return this.character.collected > threshold;
-  }
-
 
   updateJobPoints() {
     const dead = this.character.dead;
@@ -43,7 +38,7 @@ class JobPoints {
       this.context.fillText(this.jobPointDisplay, 25, 25);
       this.context.fillStyle = "#FFFFFF";
       this.context.closePath();
-      if (!(this.didGetAJob())) {
+      if (!(this.highScoreForm.didGetAJob(this.jobPoints))) {
         this.context.beginPath();
         this.context.fillText("YOU DID NOT GET A JOB IN SPACE", 250, 300);
         this.context.fillStyle = "#FFFFFF";
