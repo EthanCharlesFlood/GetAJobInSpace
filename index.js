@@ -8,10 +8,19 @@ import { EnemyObject, EnemyObject2 } from "./scripts/enemies.js";
 import Collectable from "./scripts/collectables.js";
 import Tutorial from "./scripts/tutorial.js";
 import PauseScreen from "./scripts/paused_screen";
-import Firebase from 'firebase/app';
-import FirebaseDatabase from 'firebase/database';
+import firebase from 'firebase/app';
+import firebaseDatabase from 'firebase/database';
 
 
+var config = {
+	apiKey: "AIzaSyD2VlDf6mu3KuOHSUWOi-ij6X3JObcd-CM",
+	authDomain: "getajobinspace.firebaseapp.com",
+	databaseURL: "https://getajobinspace.firebaseio.com",
+	projectId: "getajobinspace",
+	storageBucket: "getajobinspace.appspot.com",
+	messagingSenderId: "473757881805"
+};
+firebase.initializeApp(config);
 
 let requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 let now, delta;
@@ -19,7 +28,8 @@ let then = Date.now();
 let fps = 60;
 let interval = 1000/fps;
 let gameStart = 0;
-let database = Firebase.database();
+let database = firebase.database();
+database.ref('highScores').once('value').then(v => console.log(v.highScores));
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 ctx.font = "30px Comic Sans MS";
@@ -181,16 +191,26 @@ const keyUpHandler = (e) => {
   }
 };
 
-canvas.addEventListener('click', e => {
-	const position = {
-		x: e.clientX,
-		y: e.clientY
-	};
-
-	if (menu.isPlay(position) && gameStart < 1) {
-		gamestart = 1;
-	} else if (menu.isTutorial(position) && gameStart < 1) {
-		tutorial = true;
+canvas.onmousemove = (e) => {
+	var x = e.clientX;
+  var y = e.clientY;
+	if (gameStart < 1) {
+		if (menu.isPlay(x,y) && menu.selector != 1) {
+			menu.up();
+		} else if (menu.isTutorial(x,y) && menu.selector === 1) {
+			menu.up();
+		}
+	}
+};
+canvas.addEventListener("click", (e) => {
+	var x = e.clientX;
+	var y = e.clientY;
+	if (gameStart < 1) {
+		if (menu.isPlay(x,y) && menu.selector === 1) {
+			gameStart = 1;
+		} else if (menu.isTutorial(x,y) && menu.selector != 1) {
+			tutorial = true;
+		}
 	}
 });
 document.addEventListener("keydown", keyDownHandler, false);

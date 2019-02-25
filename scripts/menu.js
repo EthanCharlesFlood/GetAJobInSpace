@@ -1,34 +1,42 @@
 class Menu {
   constructor(context) {
     this.context = context;
-    this.draw = this.draw.bind(this);
     this.selector = 1;
     this.pressed = false;
     this.up = this.up.bind(this);
+    this.draw = this.draw.bind(this);
     this.down = this.down.bind(this);
+    this.isPlay = this.isPlay.bind(this);
+    this.isTutorial = this.isTutorial.bind(this);
     this.playHitbox = {
-      x1: 465,
-      x2: 500,
-      y1: 350,
-      y2: 370
+      x1: 614,
+      x2: 667,
+      y1: 436,
+      y2: 460
     };
     this.tutorialHitbox = {
-      x1: 443,
-      x2: 473,
-      y1: 440,
-      y2: 460
+      x1: 593,
+      x2: 686,
+      y1: 525,
+      y2: 546
     };
   }
 
-  isPlay(position) {
+  isPlay(x,y) {
     return (
-
+      this.playHitbox.x1 < x &&
+      this.playHitbox.x2 > x &&
+      this.playHitbox.y1 < y &&
+      this.playHitbox.y2 > y
     );
   }
 
-  isTutorial(position) {
+  isTutorial(x,y) {
     return (
-
+      this.tutorialHitbox.x1 < x &&
+      this.tutorialHitbox.x2 > x &&
+      this.tutorialHitbox.y1 < y &&
+      this.tutorialHitbox.y2 > y
     );
   }
 
@@ -57,6 +65,7 @@ class Menu {
   }
 
   draw() {
+
     if (this.pressed) {
       this.down();
     }

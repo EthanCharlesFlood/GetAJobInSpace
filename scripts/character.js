@@ -107,7 +107,7 @@ class CharacterObject extends GameObject {
   }
 
   attack() {
-    
+
   }
 
 
