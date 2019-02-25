@@ -191,7 +191,6 @@ const keyUpHandler = (e) => {
 };
 
 canvas.onmousemove = (e) => {
-	console.log(hsf.scores);
 	var x = e.clientX;
   var y = e.clientY;
 	if (gameStart < 1) {

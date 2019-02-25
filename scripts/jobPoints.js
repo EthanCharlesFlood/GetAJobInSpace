@@ -9,7 +9,7 @@ class JobPoints {
     this.updateJobPoints = this.updateJobPoints.bind(this);
     this.resetJobPoints = this.resetJobPoints.bind(this);
     this.draw = this.draw.bind(this);
-    this.didGetAJob = this.didGetAJob.bind(this);
+    this.nameEntered = false;
   }
 
   updateJobPoints() {
@@ -44,18 +44,29 @@ class JobPoints {
         this.context.fillStyle = "#FFFFFF";
         this.context.closePath();
         this.context.beginPath();
-        this.context.fillText("Press Space to Reset", 375, 400);
+        this.context.fillText("PRESS SPACE TO RESET", 375, 400);
+        this.context.fillStyle = "#FFFFFF";
+        this.context.closePath();
+      } else if (this.highScoreForm.didGetAJob(this.jobPoints) && !this.nameEntered){
+        let name = this.highScoreForm.giveName();
+        this.context.beginPath();
+        this.context.fillText("YOU DID IT!", 430, 150);
+        this.context.fillStyle = "#FFFFFF";
+        this.context.closePath();
+        this.context.beginPath();
+        this.context.fillText("ENTER YOUR NAME THEN PRESS SPACE", 250, 250);
+        this.context.fillStyle = "#FFFFFF";
+        this.context.closePath();
+        this.context.beginPath();
+        this.context.fillText("TO RECEIVE YOUR SPACEJOB", 320, 350);
+        this.context.fillStyle = "#FFFFFF";
+        this.context.closePath();
+        this.context.beginPath();
+        this.context.fillText(name, 445, 450);
         this.context.fillStyle = "#FFFFFF";
         this.context.closePath();
       } else {
-        this.context.beginPath();
-        this.context.fillText("YOU DID IT!", 375, 250);
-        this.context.fillStyle = "#FFFFFF";
-        this.context.closePath();
-        this.context.beginPath();
-        this.context.fillText("CONGRATULATIONS ON YOUR SPACE JOB!", 200, 350);
-        this.context.fillStyle = "#FFFFFF";
-        this.context.closePath();
+        this.highScoreForm.draw();
       }
     }
   }
