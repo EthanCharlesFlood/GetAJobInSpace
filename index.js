@@ -70,7 +70,7 @@ const o4 = new Obstacle(1000, heights[3], ctx);
 const o5 = new Obstacle(1000, heights[4], ctx);
 const o6 = new Obstacle(1000, heights[5], ctx);
 const o7 = new Obstacle(1000, heights[6], ctx);
-const hsf = new HighScoreForm(database);
+const hsf = new HighScoreForm(ctx, database);
 const jp = new JobPoints(tc, ctx, hsf);
 const ps = new PauseScreen(ctx);
 const menu = new Menu(ctx);
@@ -147,7 +147,11 @@ const keyDownHandler = (e) => {
     } else if (gameStart < 1 && menu.selector == 0) {
 			tutorial = true;
 		} else if (gameStart > 0 && tc.dead) {
-        resetGame();
+        if (!jp.nameEntered) {
+					jp.nameEntered = true;
+				} else {
+					resetGame();
+				}
     }
   } else if (e.keyCode === 39) {
     tc.rightPressed = true;

@@ -1,12 +1,15 @@
 
 class HighScoreForm {
-  constructor(database) {
+  constructor(context,database) {
     this.inputName = ["_","_","_","_","_","_","_","_","_","_"];
     this.database = database;
+    this.context = context;
     this.scores = {
-      highest: null,
-      higher: null,
-      high: null
+      highScores: {
+        highest: null,
+        higher: null,
+        high: null
+      }
     };
     this.fetchScores = this.fetchScores.bind(this);
     this.didGetAJob = this.didGetAJob.bind(this);
@@ -38,58 +41,58 @@ class HighScoreForm {
   }
 
   update(jobPoints) {
-    if (jobPoints > Object.values(this.scores.highest)) {
+    if (jobPoints > Object.values(this.scores.highScores.highest)) {
       const name = this.inputName.join("");
-      this.scores.highest = { name: jobPoints };
-      this.scores.higher = this.scores.highest;
-      this.scores.high = this.scores.higher;
-    } else if (jobPoints > Object.values(this.scores.higher)) {
-      this.scores.higher = { name: jobPoints };
-      this.scores.high = this.scores.higher;
-    } else if (jobPoints > Object.values(this.scores.high)) {
-      this.scores.high = { name: jobPoints };
+      this.scores.highScores.highest = { name: jobPoints };
+      this.scores.highScores.higher = this.scores.highScores.highest;
+      this.scores.highScores.high = this.scores.highScores.higher;
+    } else if (jobPoints > Object.values(this.scores.highScores.higher)) {
+      this.scores.highScores.higher = { name: jobPoints };
+      this.scores.highScores.high = this.scores.highScores.higher;
+    } else if (jobPoints > Object.values(this.scores.highScores.high)) {
+      this.scores.highScores.high = { name: jobPoints };
     }
     let ref = this.database.ref('highScores/');
-    ref.set(this.scores);
+    ref.set(this.scores.highScores);
   }
 
   draw() {
-    const name1 = Object.keys(this.scores.highest)[0];
-    const name2 = Object.keys(this.scores.higher)[0];
-    const name3 = Object.keys(this.scores.high)[0];
-    const score1 = Object.values(this.scores.highest);
-    const score2 = Object.values(this.scores.higher);
-    const score3 = Object.values(this.scores.high);
+    const name1 = Object.keys(this.scores.highScores.highest)[0];
+    const name2 = Object.keys(this.scores.highScores.higher)[0];
+    const name3 = Object.keys(this.scores.highScores.high)[0];
+    const score1 = Object.values(this.scores.highScores.highest);
+    const score2 = Object.values(this.scores.highScores.higher);
+    const score3 = Object.values(this.scores.highScores.high);
     this.context.beginPath();
     this.context.fillText("High Scores", 435, 150);
     this.context.fillStyle = "#FFFFFF";
     this.context.closePath();
     this.context.beginPath();
-    this.context.fillText(name1, 430, 250);
+    this.context.fillText(name1, 300, 250);
     this.context.fillStyle = "#FFFFFF";
     this.context.closePath();
     this.context.beginPath();
-    this.context.fillText(name2, 430, 350);
+    this.context.fillText(name2, 300, 350);
     this.context.fillStyle = "#FFFFFF";
     this.context.closePath();
     this.context.beginPath();
-    this.context.fillText(name3, 430, 450);
+    this.context.fillText(name3, 300, 450);
     this.context.fillStyle = "#FFFFFF";
     this.context.closePath();
     this.context.beginPath();
-    this.context.fillText(score1, 630, 250);
+    this.context.fillText(score1, 650, 250);
     this.context.fillStyle = "#FFFFFF";
     this.context.closePath();
     this.context.beginPath();
-    this.context.fillText(score2, 630, 350);
+    this.context.fillText(score2, 650, 350);
     this.context.fillStyle = "#FFFFFF";
     this.context.closePath();
     this.context.beginPath();
-    this.context.fillText(score3, 630, 450);
+    this.context.fillText(score3, 650, 450);
     this.context.fillStyle = "#FFFFFF";
     this.context.closePath();
     this.context.beginPath();
-    this.context.fillText("PRESS SPACE TO RESET", 375, 400);
+    this.context.fillText("PRESS SPACE TO RESET", 350, 550);
     this.context.fillStyle = "#FFFFFF";
     this.context.closePath();
   }

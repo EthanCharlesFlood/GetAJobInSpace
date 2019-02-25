@@ -44,7 +44,7 @@ class JobPoints {
         this.context.fillStyle = "#FFFFFF";
         this.context.closePath();
         this.context.beginPath();
-        this.context.fillText("PRESS SPACE TO RESET", 375, 400);
+        this.context.fillText("PRESS SPACE TO RESET", 325, 400);
         this.context.fillStyle = "#FFFFFF";
         this.context.closePath();
       } else if (this.highScoreForm.didGetAJob(this.jobPoints) && !this.nameEntered){
