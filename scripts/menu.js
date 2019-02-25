@@ -24,7 +24,7 @@ class Menu {
   }
 
   reset() {
-    this.selector = 0;
+    this.selector = 1;
   }
 
   isPlay(x,y) {

@@ -323,6 +323,7 @@ const draw = () => {
         o5.draw();
         o6.draw();
         e1.draw();
+        e2.draw();
         tc.checkCollision(o1);
         tc.checkCollision(o2);
         tc.checkCollision(o3);
@@ -330,6 +331,7 @@ const draw = () => {
         tc.checkCollision(o5);
         tc.checkCollision(o6);
         tc.checkCollision(e1);
+        tc.checkCollision(e2);
       }
       jp.draw();
     }

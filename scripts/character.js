@@ -113,10 +113,10 @@ class CharacterObject extends GameObject {
 
   hitbox() {
     return {
-      x1: this.x + 5,
+      x1: this.x + 10,
       x2: this.x + 25,
-      y1: this.y + 5,
-      y2: this.y + 40
+      y1: this.y + 15,
+      y2: this.y + 55
     };
   }
 

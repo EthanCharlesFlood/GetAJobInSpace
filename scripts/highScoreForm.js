@@ -71,7 +71,7 @@ class HighScoreForm {
     const score2 = Object.values(this.scores.higher);
     const score3 = Object.values(this.scores.high);
     this.context.beginPath();
-    this.context.fillText("High Scores", 435, 150);
+    this.context.fillText("PEOPLE WITH JOBS IN SPACE", 315, 150);
     this.context.fillStyle = "#FFFFFF";
     this.context.closePath();
     this.context.beginPath();
