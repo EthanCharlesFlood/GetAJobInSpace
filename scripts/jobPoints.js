@@ -7,22 +7,24 @@ class JobPoints {
     this.highScoreForm = highScoreForm;
     this.jobPointDisplay = `Job Points: ${this.jobPoints}`;
     this.updateJobPoints = this.updateJobPoints.bind(this);
-    this.resetJobPoints = this.resetJobPoints.bind(this);
+    this.resetJobPoints = this.reset.bind(this);
     this.draw = this.draw.bind(this);
     this.nameEntered = false;
+    this.rate = 1;
   }
 
   updateJobPoints() {
     const dead = this.character.dead;
     if (!dead) {
-      this.jobPoints += 1;
+      this.jobPoints += (this.rate + (this.collected));
     }
     this.jobPointDisplay = `Job Points: ${this.jobPoints}`;
   }
 
-  resetJobPoints() {
+  reset() {
     this.jobPoints = 0;
     this.JobPointDisplay = `Job Points: ${this.jobPoints}`;
+    this.nameEntered = false;
   }
 
   draw() {
@@ -54,7 +56,7 @@ class JobPoints {
         this.context.fillStyle = "#FFFFFF";
         this.context.closePath();
         this.context.beginPath();
-        this.context.fillText("ENTER YOUR NAME THEN PRESS SPACE", 250, 250);
+        this.context.fillText("ENTER YOUR NAME THEN PRESS ENTER", 250, 250);
         this.context.fillStyle = "#FFFFFF";
         this.context.closePath();
         this.context.beginPath();

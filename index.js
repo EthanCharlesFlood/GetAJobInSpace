@@ -76,9 +76,9 @@ const ps = new PauseScreen(ctx);
 const menu = new Menu(ctx);
 const tte = new EnemyObject(1250, 0, ctx);
 const tto = new Obstacle(1000, 250, ctx);
-const ttclctb = new Collectable(tc, 1000, 500, ctx);
+const ttclctb = new Collectable(tc, jp, 1000, 500, ctx);
 const tt = new Tutorial(ctx, tc, tte, tto, ttclctb);
-const clctb = new Collectable(tc,1000,300,ctx);
+const clctb = new Collectable(tc, jp,1000,300,ctx);
 
 
 const muteButton = document.getElementById("volume-up-down");
@@ -109,12 +109,9 @@ const pausePlay = () => {
 muteButton.onclick = mutePlay;
 pauseButton.onclick = pausePlay;
 
-const Obstacles = [o1,o2,o3,o4,o5,o6,o7];
-
-
 const resetGame = () => {
   gameStart = 0;
-  jp.resetJobPoints();
+  jp.reset();
   tc.reset();
   e1.reset();
   o1.reset();
@@ -129,6 +126,10 @@ const resetGame = () => {
 
 
 const keyDownHandler = (e) => {
+	if (gameStart > 0 && tc.dead && !jp.nameEntered) {
+		let key = e.key;
+		hsf.addLetter(key);
+	}
   if (e.keyCode === 40) {
     tc.upPressed = true;
 		if (tutorial) {
@@ -147,9 +148,7 @@ const keyDownHandler = (e) => {
     } else if (gameStart < 1 && menu.selector == 0) {
 			tutorial = true;
 		} else if (gameStart > 0 && tc.dead) {
-        if (!jp.nameEntered) {
-					jp.nameEntered = true;
-				} else {
+        if (jp.nameEntered || !hsf.didGetAJob(jp.jobPoints)) {
 					resetGame();
 				}
     }
@@ -163,7 +162,12 @@ const keyDownHandler = (e) => {
 		if (tutorial) {
 			tt.leftPressed = true;
 		}
-  }
+  } else if (e.keyCode === 13) {
+		if (gameStart > 0 && tc.dead && !jp.nameEntered) {
+			hsf.update(jp.jobPoints);
+			jp.nameEntered = true;
+		}
+	}
 };
 
 const keyUpHandler = (e) => {
