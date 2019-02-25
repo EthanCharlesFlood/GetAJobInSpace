@@ -25,6 +25,7 @@ class JobPoints {
     this.jobPoints = 0;
     this.JobPointDisplay = `Job Points: ${this.jobPoints}`;
     this.nameEntered = false;
+    this.rate = 1;
   }
 
   draw() {

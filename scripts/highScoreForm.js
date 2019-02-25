@@ -13,11 +13,16 @@ class HighScoreForm {
     this.addLetter = this.addLetter.bind(this);
     this.didGetAJob = this.didGetAJob.bind(this);
     this.giveName = this.giveName.bind(this);
+    this.reset = this.reset.bind(this);
     this.fetchScores();
   }
 
   giveName() {
     return this.inputName.join('') || ["_","_","_","_","_","_","_","_","_","_"].join("");
+  }
+
+  reset() {
+    this.inputName = [];
   }
 
   addLetter(c) {

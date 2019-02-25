@@ -45,7 +45,7 @@ class Tutorial {
       this.context.fillStyle = "#FFFFFF";
       this.context.closePath();
       if (this.upPressed === true || this.downPressed == true || this.leftPressed == true || this.rightPressed == true) {
-        this.counter += 1;
+        this.counter += 2;
       }
     } else if (this.counter < 1000) {
       this.context.beginPath();

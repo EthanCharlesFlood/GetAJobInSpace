@@ -58,18 +58,19 @@ const shuffle = function (array) {
 	return array;
 };
 
-const heights = shuffle([50,150,250,350,450,550,640]);
+const heights = shuffle([50,160,265,370,475,580]);
 
 const bg = new BackgroundObject(0,0, ctx);
 const tc = new CharacterObject(150, 200, ctx);
 const e1 = new EnemyObject(1250, 0, ctx);
-const o1 = new Obstacle(1000, heights[0], ctx);
-const o2 = new Obstacle(1000, heights[1], ctx);
-const o3 = new Obstacle(1000, heights[2], ctx);
-const o4 = new Obstacle(1000, heights[3], ctx);
-const o5 = new Obstacle(1000, heights[4], ctx);
-const o6 = new Obstacle(1000, heights[5], ctx);
-const o7 = new Obstacle(1000, heights[6], ctx);
+const e2 = new EnemyObject(1500, 0, ctx);
+const o1 = new Obstacle(1000, heights[0], ctx, tc);
+const o2 = new Obstacle(1000, heights[1], ctx, tc);
+const o3 = new Obstacle(1000, heights[2], ctx, tc);
+const o4 = new Obstacle(1000, heights[3], ctx, tc);
+const o5 = new Obstacle(1000, heights[4], ctx, tc);
+const o6 = new Obstacle(1000, heights[5], ctx, tc);
+const o7 = new Obstacle(1000, heights[6], ctx, tc);
 const hsf = new HighScoreForm(ctx, database);
 const jp = new JobPoints(tc, ctx, hsf);
 const ps = new PauseScreen(ctx);
@@ -114,6 +115,7 @@ const resetGame = () => {
   jp.reset();
   tc.reset();
   e1.reset();
+	e2.reset();
   o1.reset();
   o2.reset();
   o3.reset();
@@ -122,6 +124,8 @@ const resetGame = () => {
   o6.reset();
   o7.reset();
   clctb.reset();
+	hsf.reset();
+	menu.reset();
 };
 
 
@@ -252,12 +256,12 @@ const draw = () => {
       tc.draw();
       clctb.draw();
       tc.checkCollision(clctb);
-      if (tc.collected < 3) {
+      if (tc.collected < 3 && !tc.dead) {
         o1.draw();
         o2.draw();
         tc.checkCollision(o1);
         tc.checkCollision(o2);
-      } else if (tc.collected < 6) {
+      } else if (tc.collected < 6 && !tc.dead) {
         o1.draw();
         o2.draw();
         o3.draw();
@@ -266,7 +270,7 @@ const draw = () => {
         tc.checkCollision(o2);
         tc.checkCollision(o3);
         tc.checkCollision(o4);
-      } else if (tc.collected < 9) {
+      } else if (tc.collected < 9 && !tc.dead) {
         o1.draw();
         o2.draw();
         o3.draw();
@@ -279,7 +283,7 @@ const draw = () => {
         tc.checkCollision(o4);
         tc.checkCollision(o5);
         tc.checkCollision(o6);
-      } else if (tc.collected < 12) {
+      } else if (tc.collected < 12 && !tc.dead) {
         o1.draw();
         o2.draw();
         o3.draw();
@@ -294,7 +298,24 @@ const draw = () => {
         tc.checkCollision(o5);
         tc.checkCollision(o6);
         tc.checkCollision(e1);
-      } else {
+      } else if (tc.collected < 15 && !tc.dead) {
+				o1.draw();
+        o2.draw();
+        o3.draw();
+        o4.draw();
+        o5.draw();
+        o6.draw();
+        e1.draw();
+        e2.draw();
+        tc.checkCollision(o1);
+        tc.checkCollision(o2);
+        tc.checkCollision(o3);
+        tc.checkCollision(o4);
+        tc.checkCollision(o5);
+        tc.checkCollision(o6);
+        tc.checkCollision(e1);
+        tc.checkCollision(e2);
+			}else if (!tc.dead){
         o1.draw();
         o2.draw();
         o3.draw();

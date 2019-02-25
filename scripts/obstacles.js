@@ -1,9 +1,11 @@
 import GameObject from './object.js';
 
 class Obstacle extends GameObject {
-  constructor(canvasWidth, canvasHeight, ctx) {
+  constructor(canvasWidth, canvasHeight, ctx, pc) {
     super(canvasWidth, canvasHeight);
     this.context = ctx;
+    this.pc = pc;
+    this.ramping = 5;
     this.obstacleWords = [
                         ["REJECTED", 50],
                         ["HIRING FREEZE", 160],
@@ -36,6 +38,7 @@ class Obstacle extends GameObject {
     this.wordArr = this.obstacleWords[Math.floor(Math.random() * 8)];
     this.vector = [1,-1][Math.floor(Math.random() * 2)];
     this.dx = Math.floor( Math.random() * 5) + 4;
+    this.ramping = 5;
   }
 
   draw() {
@@ -44,7 +47,10 @@ class Obstacle extends GameObject {
       this.wordArr = this.obstacleWords[Math.floor(Math.random() * 8)];
       this.word = this.wordArr[0];
       this.vector = [1,-1][Math.floor(Math.random() * 2)];
-      this.dx = Math.floor( Math.random() * 5) + 5;
+      if (this.pc.collected > 12 && this.pc.collected % 3 === 0) {
+        this.ramping += 1;
+      }
+      this.dx = Math.floor( Math.random() * 5) + this.ramping;
     }
     this.x -= this.dx;
     this.context.beginPath();

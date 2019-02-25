@@ -23,6 +23,7 @@ class Collectable extends GameObject {
     this.reset = this.reset.bind(this);
     this.mute = this.mute.bind(this);
     this.unmute = this.unMute.bind(this);
+    this.heights = [70,180,285,390,495];
   }
 
   hitbox() {
@@ -88,14 +89,14 @@ class Collectable extends GameObject {
       this.pc.collected++;
       this.jp.collected++;
       this.x = 1500;
-      this.y = 100 + (Math.random() * 500);
+      this.y = this.heights[Math.floor(Math.random() * 5)];
     }
   }
 
   draw() {
     if (this.x < -50) {
       this.x = 1500;
-      this.y = 100 + (Math.random() * 500);
+      this.y = this.heights[Math.floor(Math.random() * 5)];
     }
     if (this.collected === true && !(this.pc.dead)) {
       this.drawCollection();

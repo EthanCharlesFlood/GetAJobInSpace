@@ -5,14 +5,14 @@ export class EnemyObject extends GameObject {
     super(canvasWidth, canvasHeight);
     this.draw = this.draw.bind(this);
     this.context = ctx;
-    this.y = Math.floor(Math.random() * 200) + 300;
-    this.dx = 5;
+    this.dx = 10;
     this.width = 120;
     this.height = 140;
     this.enemy = new Image();
     this.enemy.src = "assets/153262875432218109 (1).png";
     this.harmful = true;
-    this.heights1 = [100,200,300,400,500];
+    this.heights1 = [50,250,400];
+    this.y = this.heights1[Math.floor(Math.random() * 3)];
     this.dy = 5;
   }
 
@@ -34,7 +34,7 @@ export class EnemyObject extends GameObject {
   draw() {
     if (this.x < -200) {
       this.x = 1100;
-      this.y = Math.floor(Math.random() * 200) + 100;
+      this.y = this.heights1[Math.floor(Math.random() * 3)];
     }
     this.x -= this.dx;
     if (this.c < 20) {

@@ -8,6 +8,7 @@ class Menu {
     this.down = this.down.bind(this);
     this.isPlay = this.isPlay.bind(this);
     this.isTutorial = this.isTutorial.bind(this);
+    this.reset = this.reset.bind(this);
     this.playHitbox = {
       x1: 614,
       x2: 667,
@@ -20,6 +21,10 @@ class Menu {
       y1: 525,
       y2: 546
     };
+  }
+
+  reset() {
+    this.selector = 0;
   }
 
   isPlay(x,y) {
