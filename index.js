@@ -31,7 +31,7 @@ let gameStart = 0;
 let database = firebase.database();
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
-ctx.font = "30px Comic Sans MS";
+ctx.font = "30px Sans MS";
 ctx.fillStyle = "white";
 
 let paused = false;
