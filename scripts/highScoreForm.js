@@ -47,6 +47,12 @@ class HighScoreForm {
     });
   }
 
+  backSpace() {
+    if (this.inputName.length > 0) {
+      this.inputName.pop();
+    }
+  }
+
   update(jobPoints) {
     const name = this.inputName.join("");
     if (jobPoints > Object.values(this.scores.highest)) {

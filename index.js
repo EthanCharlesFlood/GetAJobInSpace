@@ -171,6 +171,10 @@ const keyDownHandler = (e) => {
 			hsf.update(jp.jobPoints);
 			jp.nameEntered = true;
 		}
+	} else if (e.keyCode === 8) {
+		if (gameStart > 0 && tc.dead && !jp.nameEntered) {
+			hsf.backSpace();
+		}
 	}
 };
 
