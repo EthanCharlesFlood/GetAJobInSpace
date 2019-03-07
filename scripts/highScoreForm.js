@@ -51,6 +51,7 @@ class HighScoreForm {
     if (this.inputName.length > 0) {
       this.inputName.pop();
     }
+    return null;
   }
 
   update(jobPoints) {
