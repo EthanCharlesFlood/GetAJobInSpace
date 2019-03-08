@@ -31,10 +31,7 @@ class HighScoreForm {
     }
     if (this.inputName.length < 10) {
       this.inputName.push(c);
-    } else if (this.inputName.length >= 10) {
-      this.inputName.shift();
-      this.inputName.push(c);
-    }
+    } 
   }
 
   didGetAJob(score) {
