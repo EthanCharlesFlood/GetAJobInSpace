@@ -26,12 +26,12 @@ class HighScoreForm {
   }
 
   addLetter(c) {
-    if (c.length > 1) {
+    if (c.length > 10) {
       return null;
     }
     if (this.inputName.length < 10) {
       this.inputName.push(c);
-    } 
+    }
   }
 
   didGetAJob(score) {
