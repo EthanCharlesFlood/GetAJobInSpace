@@ -10,16 +10,16 @@ class Menu {
     this.isTutorial = this.isTutorial.bind(this);
     this.reset = this.reset.bind(this);
     this.playHitbox = {
-      x1: 614,
-      x2: 667,
-      y1: 436,
-      y2: 460
+      x1: 470,
+      x2: 523,
+      y1: 336,
+      y2: 362,
     };
     this.tutorialHitbox = {
-      x1: 593,
-      x2: 686,
-      y1: 525,
-      y2: 546
+      x1: 449,
+      x2: 542,
+      y1: 426,
+      y2: 445,
     };
   }
 

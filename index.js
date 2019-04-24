@@ -207,8 +207,12 @@ const keyUpHandler = (e) => {
 };
 
 canvas.onmousemove = (e) => {
-	var x = e.clientX;
-  var y = e.clientY;
+
+	let bound = canvas.getBoundingClientRect();
+	var x = e.clientX - bound.left;
+  var y = e.clientY - bound.top;
+	console.log(x);
+	console.log(y);
 	if (gameStart < 1) {
 		if (menu.isPlay(x,y) && menu.selector != 1) {
 			menu.up();
@@ -218,8 +222,9 @@ canvas.onmousemove = (e) => {
 	}
 };
 canvas.addEventListener("click", (e) => {
-	var x = e.clientX;
-	var y = e.clientY;
+	let bound = canvas.getBoundingClientRect();
+	var x = e.clientX - bound.left;
+	var y = e.clientY - bound.top;
 	if (gameStart < 1) {
 		if (menu.isPlay(x,y) && menu.selector === 1) {
 			gameStart = 1;

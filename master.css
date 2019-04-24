@@ -50,8 +50,6 @@ span {
 .game-canvas {
   background-color: #fff;
   border: 5px solid black;
-  margin-top: 15px;
-  margin-bottom: 15px;
 }
 
 .input-name > input {
