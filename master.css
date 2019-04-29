@@ -32,17 +32,13 @@ span {
   padding: 5px;
 }
 
-.controls {
-  border-style: inset;
-  padding: 5px;
-  margin-bottom: 10px;
-}
-
 .dev-info {
   text-decoration: none;
   border-style: inset;
+  font-size: .85em;
   background-color: black;
   border: 5px solid black;
+  margin-left: 10px;
 }
 
 .game-canvas {
@@ -74,11 +70,15 @@ span {
 .mute-pause {
   display: flex;
   justify-content: space-between;
+  flex-direction: row;
   margin-top: 15px;
 }
 
 .mute-pause i {
   cursor: pointer;
+  width: 50%;
+  display: flex;
+  justify-content: center;
 }
 
 .collect-img {
