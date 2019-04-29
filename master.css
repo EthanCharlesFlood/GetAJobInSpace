@@ -41,8 +41,6 @@ span {
 .dev-info {
   text-decoration: none;
   border-style: inset;
-  padding: 5px;
-  margin-bottom: 10px;
   background-color: black;
   border: 5px solid black;
 }
