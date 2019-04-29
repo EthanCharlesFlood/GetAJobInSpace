@@ -211,8 +211,6 @@ canvas.onmousemove = (e) => {
 	let bound = canvas.getBoundingClientRect();
 	var x = e.clientX - bound.left;
   var y = e.clientY - bound.top;
-	console.log(x);
-	console.log(y);
 	if (gameStart < 1) {
 		if (menu.isPlay(x,y) && menu.selector != 1) {
 			menu.up();
