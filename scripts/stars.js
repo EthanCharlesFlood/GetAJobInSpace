@@ -43,3 +43,5 @@ class Stars extends GameObject {
   	this.ctx.restore();
   }
 }
+
+export default Star;

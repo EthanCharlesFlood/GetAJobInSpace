@@ -1,3 +1,5 @@
+import Star from './stars';
+
 class Menu {
   constructor(context) {
     this.context = context;
