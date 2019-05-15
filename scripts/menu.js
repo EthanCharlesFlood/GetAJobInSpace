@@ -23,6 +23,8 @@ class Menu {
       y1: 426,
       y2: 445,
     };
+    this.stars = [];
+    this.populateStars();
   }
 
   reset() {
@@ -71,8 +73,24 @@ class Menu {
     }
   }
 
-  draw() {
+  populateStars() {
+    for (let i = 0; i < 24; i++) {
+      let size = Math.random() * 2 + 1;
+      let opacity = Math.random();
+      let star = new Star(1000,600,this.context,opacity,size);
+      this.stars.push(star);
+    }
+  }
 
+  drawStars() {
+    for (let i = 0; i < this.stars.length; i++) {
+      let star = this.stars[i];
+      star.draw();
+    }
+  }
+
+  draw() {
+    // this.drawStars();
     if (this.pressed) {
       this.down();
     }
