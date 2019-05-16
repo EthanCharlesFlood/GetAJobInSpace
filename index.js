@@ -86,7 +86,7 @@ const muteButton = document.getElementById("volume-up-down");
 const pauseButton = document.getElementById("pause-play");
 
 const mutePlay = () => {
-	$("#volume-up-down").toggleClass('fa-volume-off fa-volume-up');
+	$("#volume-up-down").toggleClass('fa-volume-up fa-volume-off');
 	if (muted) {
 		tc.unMute();
 		clctb.unMute();
@@ -99,7 +99,7 @@ const mutePlay = () => {
 };
 
 const pausePlay = () => {
-	$("#pause-play").toggleClass('fa-pause fa-play');
+	$("#pause-play").toggleClass('fa-play fa-pause');
 	if (paused) {
 		paused = false;
 	} else {

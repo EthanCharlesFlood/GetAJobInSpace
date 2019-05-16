@@ -3,6 +3,8 @@ class Star {
     this.ctx = ctx;
     this.opacity = opacity;
     this.size = size;
+    this.canvasWidth = canvasWidth;
+    this.canvasHeight = canvasHeight;
     this.x = Math.floor(Math.random() * canvasWidth);
     this.y = Math.floor(Math.random() * canvasHeight);
     this.opacityDiff = Math.random() * 0.03;
@@ -11,8 +13,7 @@ class Star {
 
 
   draw() {
-  	this.ctx.rotate((Math.PI * 1 / 10));
-  	this.ctx.save();
+    this.ctx.save();
   	if(this.opacity > 1) {
   		this.opacityDirection = -1;
   	}
@@ -22,19 +23,11 @@ class Star {
       this.opacityDirection = 1;
   	}
 
-  	this.opacity += this.increment * this.opacityDirection;
+  	this.opacity += this.opacityDiff * this.opacityDirection;
   	this.ctx.beginPath();
-  	for (var i = 5; i--;) {
-  		this.ctx.lineTo(0, this.size);
-  		this.ctx.translate(0, this.size);
-  		this.ctx.rotate((Math.PI * 2 / 10));
-  		this.ctx.lineTo(0, - this.size);
-  		this.ctx.translate(0, - this.size);
-  		this.ctx.rotate(-(Math.PI * 6 / 10));
-  	}
-  	this.ctx.lineTo(0, this.size);
+    this.ctx.arc(this.x,this.y,this.size, 0, 2 * Math.PI);
   	this.ctx.closePath();
-  	this.ctx.fillStyle = "rgba(255, 255, 200, " + this.opacity + ")";
+  	this.ctx.fillStyle = `rgba(255, 255, 200,${this.opacity})`;
   	this.ctx.shadowBlur = 5;
   	this.ctx.shadowColor = '#fff';
   	this.ctx.fill();

@@ -25,6 +25,8 @@ class Menu {
     };
     this.stars = [];
     this.populateStars();
+    this.sun = new Image();
+    this.sun.src = 'assets/sun-png-real-sun-png-4724.png';
   }
 
   reset() {
@@ -74,8 +76,8 @@ class Menu {
   }
 
   populateStars() {
-    for (let i = 0; i < 24; i++) {
-      let size = Math.random() * 2 + 1;
+    for (let i = 0; i < 49; i++) {
+      let size = 1 + Math.random() * 2;
       let opacity = Math.random();
       let star = new Star(1000,600,this.context,opacity,size);
       this.stars.push(star);
@@ -90,7 +92,8 @@ class Menu {
   }
 
   draw() {
-    // this.drawStars();
+    this.context.drawImage(this.sun,50,200);
+    this.drawStars();
     if (this.pressed) {
       this.down();
     }
