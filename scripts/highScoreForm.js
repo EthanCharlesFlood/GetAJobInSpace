@@ -1,14 +1,14 @@
 
 class HighScoreForm {
-  constructor(context,database) {
+  constructor(context) {
     this.inputName = [];
-    this.database = database;
     this.context = context;
     this.scores = {
         highest: null,
         higher: null,
         high: null
     };
+    this.database = { highScores: this.scores }
     this.fetchScores = this.fetchScores.bind(this);
     this.addLetter = this.addLetter.bind(this);
     this.didGetAJob = this.didGetAJob.bind(this);
@@ -26,7 +26,7 @@ class HighScoreForm {
   }
 
   addLetter(c) {
-    if (c.length > 10) {
+    if (c.length > 1) {
       return null;
     }
     if (this.inputName.length < 10) {
@@ -35,13 +35,15 @@ class HighScoreForm {
   }
 
   didGetAJob(score) {
-    return score >= Object.values(this.scores.high);
+    const highScore = (this.scores.high && Object.values(this.scores.high)[0]) || 0;
+    console.log(score, highScore, score >= highScore)
+    return score >= highScore;
   }
 
   fetchScores() {
-    this.database.ref('highScores/').once('value', scores => {
-    	this.scores = scores.val();
-    });
+    console.log('poop')
+    console.log(this.database)
+    return this.database.highScores
   }
 
   backSpace() {
@@ -53,27 +55,30 @@ class HighScoreForm {
 
   update(jobPoints) {
     const name = this.inputName.join("");
-    if (jobPoints > Object.values(this.scores.highest)) {
+    const high = this.scores.high ? Object.values(this.scores.high)[0]: 0;
+    const higher = this.scores.higher ? Object.values(this.scores.higher)[0]: 0;
+    const highest = this.scores.highest ? Object.values(this.scores.highest)[0]: 0;
+    console.log(high, higher, highest)
+    if (jobPoints > highest) {
       this.scores.high = this.scores.higher;
       this.scores.higher = this.scores.highest;
       this.scores.highest = { [name]: jobPoints };
-    } else if (jobPoints > Object.values(this.scores.higher) && jobPoints < Object.values(this.scores.highest)) {
+    } else if (jobPoints > higher) {
       this.scores.high = this.scores.higher;
       this.scores.higher = { [name]: jobPoints };
-    } else if (jobPoints > Object.values(this.scores.high) &&  jobPoints < Object.values(this.scores.higher)) {
+    } else if (jobPoints > highest) {
       this.scores.high = { [name]: jobPoints };
     }
-    let ref = this.database.ref('highScores/');
-    ref.set(this.scores);
+    this.database.highScores = this.scores
   }
 
   draw() {
-    const name1 = Object.keys(this.scores.highest)[0];
-    const name2 = Object.keys(this.scores.higher)[0];
-    const name3 = Object.keys(this.scores.high)[0];
-    const score1 = Object.values(this.scores.highest);
-    const score2 = Object.values(this.scores.higher);
-    const score3 = Object.values(this.scores.high);
+    const name1 = this.scores.highest && Object.keys(this.scores.highest)[0] || '';
+    const name2 = this.scores.higher && Object.keys(this.scores.higher)[0] || '';
+    const name3 = this.scores.high && Object.keys(this.scores.high)[0] || '';
+    const score1 = this.scores.highest && Object.values(this.scores.highest)[0] || 0;
+    const score2 = this.scores.higher && Object.values(this.scores.higher)[0] || 0;
+    const score3 = this.scores.high && Object.values(this.scores.high)[0] || 0;
     this.context.beginPath();
     this.context.fillText("PEOPLE WITH JOBS IN SPACE", 315, 150);
     this.context.fillStyle = "#FFFFFF";

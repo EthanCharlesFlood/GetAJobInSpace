@@ -1,4 +1,4 @@
-import Star from './stars';
+import Star from './stars.js';
 
 class Menu {
   constructor(context) {

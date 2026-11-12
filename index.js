@@ -1,4 +1,4 @@
-import CharacterObject from './scripts/character';
+import CharacterObject from './scripts/character.js';
 import Obstacle from "./scripts/obstacles.js";
 import BackgroundObject from "./scripts/background.js";
 import Menu from "./scripts/menu.js";
@@ -7,20 +7,8 @@ import HighScoreForm from "./scripts/highScoreForm.js";
 import { EnemyObject, EnemyObject2 } from "./scripts/enemies.js";
 import Collectable from "./scripts/collectables.js";
 import Tutorial from "./scripts/tutorial.js";
-import PauseScreen from "./scripts/paused_screen";
-import firebase from 'firebase/app';
-import firebaseDatabase from 'firebase/database';
+import PauseScreen from "./scripts/paused_screen.js";
 
-
-var config = {
-	apiKey: "AIzaSyD2VlDf6mu3KuOHSUWOi-ij6X3JObcd-CM",
-	authDomain: "getajobinspace.firebaseapp.com",
-	databaseURL: "https://getajobinspace.firebaseio.com",
-	projectId: "getajobinspace",
-	storageBucket: "getajobinspace.appspot.com",
-	messagingSenderId: "473757881805"
-};
-firebase.initializeApp(config);
 
 let requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 let now, delta;
@@ -28,7 +16,6 @@ let then = Date.now();
 let fps = 60;
 let interval = 1000/fps;
 let gameStart = 0;
-let database = firebase.database();
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 ctx.font = "30px Sans MS";
@@ -71,7 +58,7 @@ const o4 = new Obstacle(1000, heights[3], ctx, tc);
 const o5 = new Obstacle(1000, heights[4], ctx, tc);
 const o6 = new Obstacle(1000, heights[5], ctx, tc);
 const o7 = new Obstacle(1000, heights[6], ctx, tc);
-const hsf = new HighScoreForm(ctx, database);
+const hsf = new HighScoreForm(ctx);
 const jp = new JobPoints(tc, ctx, hsf);
 const ps = new PauseScreen(ctx);
 const menu = new Menu(ctx);
